@@ -1,9 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: 'export', // ✅ tells Next.js to export static files
   images: {
-    unoptimized: true,
+    unoptimized: true, // ✅ allows images to work on static sites
   },
 };
 
