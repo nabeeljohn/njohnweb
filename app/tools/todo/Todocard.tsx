@@ -1,12 +1,8 @@
-const names = ['Alice', 'Bob'];
-
-export default function ToDoCard() {
-    const chosenName = Math.random() < 0.5 ? names[0] : names[1];
-
+export default function ToDoCard(props: {userName: string, body: string}) {
     return (
         <div className="max-w-md mx-auto my-4 p-6 bg-gray-100 rounded-lg shadow-md text-black">
-            <p>Hi, {chosenName}</p>
-            <p>Your Todo list app is under construction. Please check back later.</p>
+            <p>Hi, {props.userName}</p>
+            <p>{props.body}</p>
         </div>    
     );
 }
