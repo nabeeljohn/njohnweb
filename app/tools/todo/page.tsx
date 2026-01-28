@@ -1,12 +1,13 @@
-const names = ['Alice', 'Bob'];
+
+import ToDoCard from "./Todocard";
 
 export default function Todo() {
-    const chosenName = Math.random() < 0.5 ? names[0] : names[1];
-
     return (
-        <div>
-            <p>Hi, {chosenName}</p>
-            <p>Your Todo list app is under construction. Please check back later.</p>
-        </div>    
+        <>
+            <ToDoCard />
+            <ToDoCard />
+            <ToDoCard />
+            <ToDoCard />
+        </>
     );
 }
