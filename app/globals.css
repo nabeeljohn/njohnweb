@@ -25,3 +25,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+.pageSubtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color:aliceblue;
+  text-align: center;
+}
