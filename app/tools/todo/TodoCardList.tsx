@@ -7,8 +7,8 @@ import classes from "./TodoCardList.module.css";
 import { useState } from "react";
 
 export default function TodoCardList(){
-    const [cardTitle, setCardTitle] = useState('');
-    const [cardBody, setCardBody] = useState('');
+    const [cardTitle, setCardTitle] = useState('AlexG');
+    const [cardBody, setCardBody] = useState('Goto Honda');
 
     function cardTitleChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
         setCardTitle(e.target.value);
