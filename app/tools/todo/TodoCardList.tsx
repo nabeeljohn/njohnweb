@@ -12,6 +12,10 @@ export default function TodoCardList() {
     const [cardTitle, setCardTitle] = useState('AlexG');
     const [cardBody, setCardBody] = useState('Goto Honda');
 
+    function hideModalHandler() {
+        setModalVisible(false);
+    }
+
     function cardTitleChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
         setCardTitle(e.target.value);
     }
@@ -22,11 +26,11 @@ export default function TodoCardList() {
 
     return (
         <>
-            <Modal>
-                <CreateTodoCard
+            {modalVisible && <Modal onClose={hideModalHandler}>
+                <CreateTodoCard 
                     onCardTitleChange={cardTitleChangeHandler}
                     onCardBodyChange={cardBodyChangeHandler} />
-            </Modal>
+            </Modal>}
             <ul className={classes.todoCardList}>
                 <TodoCard cardTitle={cardTitle} cardBody={cardBody} />
                 <TodoCard cardTitle="Bob" cardBody="Need to bring Honda to the dealer" />
