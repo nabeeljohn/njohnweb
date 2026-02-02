@@ -7,14 +7,9 @@ import classes from "./TodoCardList.module.css";
 
 import { useState } from "react";
 
-export default function TodoCardList() {
-    const [modalVisible, setModalVisible] = useState(true);
+export default function TodoCardList({isPosting, isNotPosting, onCancel} : {isPosting : boolean, isNotPosting: () => void, onCancel: () => void}) {
     const [cardTitle, setCardTitle] = useState('AlexG');
     const [cardBody, setCardBody] = useState('Goto Honda');
-
-    function hideModalHandler() {
-        setModalVisible(false);
-    }
 
     function cardTitleChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
         setCardTitle(e.target.value);
@@ -26,12 +21,11 @@ export default function TodoCardList() {
 
     return (
         <>
-            <button onClick={() => setModalVisible(true)}>Add Todo Item</button>
-
-            {modalVisible && <Modal onClose={hideModalHandler}>
+            {isPosting && <Modal onClose={isNotPosting}>
                 <CreateTodoCard
                     onCardTitleChange={cardTitleChangeHandler}
-                    onCardBodyChange={cardBodyChangeHandler} />
+                    onCardBodyChange={cardBodyChangeHandler}
+                    onCancel={isNotPosting} />
             </Modal>}
             <ul className={classes.todoCardList}>
                 <TodoCard cardTitle={cardTitle} cardBody={cardBody} />
