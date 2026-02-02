@@ -7,7 +7,9 @@ import classes from "./TodoCardList.module.css";
 
 import { useState } from "react";
 
-export default function TodoCardList({isPosting, isNotPosting, onCancel} : {isPosting : boolean, isNotPosting: () => void, onCancel: () => void}) {
+export default function TodoCardList({isPosting, isNotPosting}:
+    {isPosting: boolean,
+     isNotPosting: () => void}) {
     const [cardTitle, setCardTitle] = useState('AlexG');
     const [cardBody, setCardBody] = useState('Goto Honda');
 
