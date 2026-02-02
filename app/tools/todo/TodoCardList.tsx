@@ -26,6 +26,8 @@ export default function TodoCardList() {
 
     return (
         <>
+        <button onClick={() => setModalVisible(true)}>Add Todo Item</button>
+        
             {modalVisible && <Modal onClose={hideModalHandler}>
                 <CreateTodoCard 
                     onCardTitleChange={cardTitleChangeHandler}
