@@ -2,3 +2,15 @@
     font-weight: bold;
     margin-bottom: 8px;
 }
+
+.divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1rem 0;
+}
+
+.dateTime {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: left; /* or center */
+}

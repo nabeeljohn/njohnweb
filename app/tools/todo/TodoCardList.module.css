@@ -1,10 +1,12 @@
 .todoCardList {
     list-style: none;
-    max-width: 60rem;
-    margin: 1rem auto;
-    padding: 1rem auto;
+
+    margin: 1rem 10%;     /* match header */
+    padding: 1rem;        /* auto is invalid */
+
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(3, 30%);
-    justify-content: center;
+
+    grid-template-columns: repeat(3, 1fr); /* fill available space */
+    justify-content: start;                 /* align left */
 }

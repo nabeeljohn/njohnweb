@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./CreateTodoCard.module.css";
 
-export default function CreateTodoCard({onCancel}: { onCancel: () => void }) {
+export default function CreateTodoCard({onCancel, newTodoCard}: { onCancel: () => void, newTodoCard: any}) {
 
     const [cardTitle, setCardTitle] = useState('AlexG');
     const [cardBody, setCardBody] = useState('Goto Honda');
@@ -18,9 +18,10 @@ export default function CreateTodoCard({onCancel}: { onCancel: () => void }) {
         e.preventDefault();
         const toDoPost = {
             title: cardTitle,
-            body: cardBody
+            body: cardBody,
+            createdOn: new Date().toISOString()
         };
-        console.log('New ToDo Entry:', toDoPost);
+        newTodoCard(toDoPost);
         onCancel(); // Close the modal after submission
     }
 
