@@ -33,7 +33,13 @@ export default function TodoCardList({ isPosting, isNotPosting, newTodoCard }:
             {todoCards.length > 0 && (
                 <ul className={classes.todoCardList}>
                     {todoCards.map((todoCard) => (
-                        <TodoCard key={todoCard.title} cardTitle={todoCard.title} cardBody={todoCard.body} cardCreatedOn={todoCard.createdOn}/>
+                        <TodoCard 
+                            key={todoCard.title}
+                            number = {todoCards.indexOf(todoCard) + 1} 
+                            cardTitle={todoCard.title} 
+                            cardBody={todoCard.body} 
+                            cardCreatedOn={todoCard.createdOn}
+                        />
                     ))}
                 </ul>
             )}
