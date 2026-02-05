@@ -21,7 +21,32 @@ export default function TodoCardList({ isPosting, isNotPosting, newTodoCard }:
 
     const [todoCards, setTodoCards] = useState<Card[]>([]);
 
-    function addTodoCardHandler(newTodoCard: Card) {
+    async function addTodoCardHandler(newTodoCard: Card) {
+        const firestoreBody = {
+            fields: {
+                title: { stringValue: newTodoCard.title },
+                body: { stringValue: newTodoCard.body },
+                createdOn: { stringValue: newTodoCard.createdOn.toString() }
+            }
+        };
+
+        const res = await fetch(
+            "https://firestore.googleapis.com/v1/projects/nextupdata-8d635/databases/(default)/documents/ToDoCardsNJohn/",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(firestoreBody)
+            }
+        );
+
+        const data = await res.json();
+
+        console.log("STATUS:", res.status);
+        console.log("RESPONSE:", data);
+
+
         setTodoCards((prevCards) => [...prevCards, newTodoCard]);
     }
 
@@ -33,11 +58,11 @@ export default function TodoCardList({ isPosting, isNotPosting, newTodoCard }:
             {todoCards.length > 0 && (
                 <ul className={classes.todoCardList}>
                     {todoCards.map((todoCard) => (
-                        <TodoCard 
+                        <TodoCard
                             key={todoCard.title}
-                            number = {todoCards.indexOf(todoCard) + 1} 
-                            cardTitle={todoCard.title} 
-                            cardBody={todoCard.body} 
+                            number={todoCards.indexOf(todoCard) + 1}
+                            cardTitle={todoCard.title}
+                            cardBody={todoCard.body}
                             cardCreatedOn={todoCard.createdOn}
                         />
                     ))}
@@ -45,7 +70,7 @@ export default function TodoCardList({ isPosting, isNotPosting, newTodoCard }:
             )}
 
             {
-            todoCards.length === 0 && <p style={{textAlign:'center'}}>No To-Do Items. Please add one.</p>
+                todoCards.length === 0 && <p style={{ textAlign: 'center' }}>No To-Do Items. Please add one.</p>
             }
 
         </>
