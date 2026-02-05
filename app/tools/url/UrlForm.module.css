@@ -1,0 +1,110 @@
+/* Center the form on the page and give some spacing */
+.form {
+    background-color: #f1f1f1;
+    padding: 2rem;               /* more padding inside the form */
+    width: 50rem;
+    max-width: 90%;              /* make responsive on smaller screens */
+    margin: 2rem auto;           /* top/bottom margin + horizontal centering */
+    color: black;
+    border-radius: 12px;         /* rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* optional subtle shadow */
+}
+
+/* Labels */
+.form label {
+    display: block;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0.25rem;
+}
+
+/* Text input fields */
+.form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Textarea */
+.textInput {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+/* Button container */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Buttons */
+.actions button {
+    cursor: pointer;
+    font: inherit;
+    border: none;
+    background-color: #34036c;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.actions button:hover {
+    background-color: #5b3ad4; /* hover effect */
+}
+
+/* Row for title + toggle */
+.headerRow {
+  display: flex;
+  justify-content: space-between; /* title left, toggle right */
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Bigger title */
+.title {
+  font-size: 1.5rem;   /* increase size */
+  font-weight: bold;
+  margin: 0;         /* remove default h1 margin */
+}
+
+/* Keep existing toggle styles */
+.toggleContainer {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.toggleButton {
+  display: flex;
+  border: 2px solid #34036c;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 120px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.toggleButton span {
+  flex: 1;
+  text-align: center;
+  padding: 0.4rem 0;
+  background-color: white;
+  color: #34036c;
+  transition: all 0.2s ease;
+}
+
+.toggleButton .activeOption {
+  background-color: #34036c;
+  color: white;
+}
