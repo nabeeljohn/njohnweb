@@ -34,3 +34,16 @@
 .button:hover {
   background-color: #8c6cf7;
 }
+
+/* RESPONSIVE: on small screens, stack logo and button vertically */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column; /* stack children vertically */
+    align-items: flex-start; /* align items to left */
+    gap: 0.5rem; /* spacing between logo and button */
+  }
+
+  .button {
+    width: 100%; /* optional: make button full width */
+  }
+}
