@@ -1,12 +1,26 @@
 .todoCardList {
     list-style: none;
-
-    margin: 1rem 10%;     /* match header */
-    padding: 1rem;        /* auto is invalid */
+    margin: 1rem 2%;   /* space on sides */
+    padding: 1rem;
 
     display: grid;
     gap: 1rem;
+    grid-template-columns: repeat(3, 1fr); /* desktop: 3 columns */
+    justify-content: start;
+}
 
-    grid-template-columns: repeat(3, 1fr); /* fill available space */
-    justify-content: start;                 /* align left */
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+    .todoCardList {
+        grid-template-columns: 1fr;
+        margin: 1rem 2%;
+    }
+}
+
+/* Mobile: 1 column (full width) */
+@media (max-width: 600px) {
+    .todoCardList {
+        grid-template-columns: 1fr;
+        margin: 1rem 2%;
+    }
 }
