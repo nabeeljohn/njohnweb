@@ -1,5 +1,5 @@
 import { MdPostAdd, MdChecklist } from 'react-icons/md';
-import classes from './MainHeader.module.css';
+import classes from './mainheader.module.css';
 
 export default function MainHeader({ onCreatePost }: { onCreatePost: () => void }) {
     return (

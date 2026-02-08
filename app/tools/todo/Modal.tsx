@@ -1,4 +1,4 @@
-import classes from './Modal.module.css';
+import classes from './modal.module.css';
 
 export default function Modal(props: {onClose: () => void, children: React.ReactNode}) {
     return (

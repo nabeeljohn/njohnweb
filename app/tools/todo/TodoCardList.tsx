@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import TodoCard from "./TodoCard";
-import Modal from "./Modal";
-import CreateTodoCard from "./CreateTodoCard";
-import classes from "./TodoCardList.module.css";
+import TodoCard from "./todocard";
+import Modal from "./modal";
+import CreateTodoCard from "./createtodocard";
+import classes from "./todocardlist.module.css";
 import { subscribeTodos, addTodoCard, TodoCard as TodoCardType } from "../../../firebase/nextUpServices";
 
 export default function TodoCardList({
@@ -72,15 +72,18 @@ export default function TodoCardList({
         <p style={{ textAlign: "center" }}>Loading...</p>
       ) : todos.length > 0 ? (
         <ul className={classes.todoCardList}>
-          {todos.map((todoCard, index) => (
-            <TodoCard
-              key={todoCard.id}
-              number={index + 1}
-              cardTitle={todoCard.title}
-              cardBody={todoCard.body}
-              cardCreatedOn={formatDate(todoCard.createdOn)}
-            />
-          ))}
+          {todos.map((todoCard, index) => {
+            const formattedDate = isClient ? formatDate(todoCard.createdOn) : "";
+            return (
+              <TodoCard
+                key={todoCard.id}
+                number={index + 1}
+                cardTitle={todoCard.title}
+                cardBody={todoCard.body}
+                cardCreatedOn={formattedDate}
+              />
+            );
+          })}
         </ul>
       ) : (
         <p style={{ textAlign: "center" }}>No To-Do Items. Please add one.</p>

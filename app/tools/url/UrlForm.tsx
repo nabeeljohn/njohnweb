@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import classes from './UrlForm.module.css';
+import classes from './urlform.module.css';
 
 export default function UrlForm() {
   const [isEncode, setIsEncode] = useState(true); // true = Encode, false = Decode

@@ -1,4 +1,4 @@
-import UrlForm from "./UrlForm";
+import UrlForm from "./urlform";
 
 export default function URLTool() {
     return (

@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import MainHeader from "./MainHeader";
-import TodoCardList from "./TodoCardList";
+import MainHeader from "./mainheader";
+import TodoCardList from "./todocardlist";
 
 export default function Todo() {
     const [modalVisible, setModalVisible] = useState(false);

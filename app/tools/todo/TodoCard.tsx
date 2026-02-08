@@ -1,4 +1,4 @@
-import classes from "./TodoCard.module.css";
+import classes from "./todocard.module.css";
 
 export default function TodoCard({ cardTitle, cardBody, cardCreatedOn, number }:
     { cardTitle: string, cardBody: string, cardCreatedOn: string, number: number }) {
