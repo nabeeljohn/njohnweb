@@ -7,7 +7,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <MainHeader />
+            <MainHeader />
 <div className="min-h-screen bg-gray-700 text-gray-100 py-12">
   <div className="max-w-7xl mx-auto px-6">
 
