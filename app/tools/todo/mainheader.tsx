@@ -1,5 +1,6 @@
 import { MdPostAdd, MdChecklist } from 'react-icons/md';
 import classes from './mainheader.module.css';
+import { buttonPrimary } from '../../../appcomponents/styles';
 
 export default function MainHeader({ onCreatePost }: { onCreatePost: () => void }) {
     return (
@@ -15,7 +16,7 @@ export default function MainHeader({ onCreatePost }: { onCreatePost: () => void 
 
             </div>
 
-            <button className={classes.button} onClick={onCreatePost}>
+            <button className={buttonPrimary} onClick={onCreatePost}>
                 <MdPostAdd size={18} />
                 New Todo Item
             </button>

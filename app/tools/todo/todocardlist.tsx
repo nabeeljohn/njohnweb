@@ -68,26 +68,26 @@ export default function TodoCardList({
       )}
 
       {/* Main content */}
-      {loading ? (
-        <p style={{ textAlign: "center" }}>Loading...</p>
-      ) : todos.length > 0 ? (
-        <ul className={classes.todoCardList}>
-          {todos.map((todoCard, index) => {
-            const formattedDate = isClient ? formatDate(todoCard.createdOn) : "";
-            return (
-              <TodoCard
-                key={todoCard.id}
-                number={index + 1}
-                cardTitle={todoCard.title}
-                cardBody={todoCard.body}
-                cardCreatedOn={formattedDate}
-              />
-            );
-          })}
-        </ul>
-      ) : (
-        <p style={{ textAlign: "center" }}>No To-Do Items. Please add one.</p>
-      )}
+{loading ? (
+          <p style={{ textAlign: "center" }}>Loading...</p>
+        ) : todos.length > 0 ? (
+          <ul className={classes.todoCardList}>
+            {todos.map((todoCard, index) => {
+              const formattedDate = isClient ? formatDate(todoCard.createdOn) : "";
+              return (
+                <TodoCard
+                  key={todoCard.id}
+                  number={index + 1}
+                  cardTitle={todoCard.title}
+                  cardBody={todoCard.body}
+                  cardCreatedOn={formattedDate}
+                />
+              );
+            })}
+          </ul>
+        ) : (
+          <p style={{ textAlign: "center" }}>No To-Do Items. Please add one.</p>
+        )}
     </>
   );
 }

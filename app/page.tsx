@@ -1,5 +1,4 @@
-import Image from "next/image";
-import AppHeader from "@/appcomponents/header";
+import MainHeader from "@/appcomponents/mainheader";
 
 export const metadata = {
   title: "NJohn Web - Home"
@@ -8,14 +7,24 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <AppHeader />
-      <div className="flex items-center justify-center min-h-screen bg-gray-800">
-      <div className="w-full max-w-md rounded-lg bg-gray-200 p-8 shadow-lg">
-        <h1 className="text-2xl font-bold text-gray-900 text-center">
-          Coming Soon - Nabeel John
-        </h1>
+      <MainHeader />
+<div className="min-h-screen bg-gray-700 text-gray-100 py-12">
+  <div className="max-w-7xl mx-auto px-6">
+
+          {/* Intro */}
+          <div className="flex items-center gap-4 mb-8">
+            <h1 className="text-4xl font-bold">Hi, I’m Nabeel John</h1>
+          </div>
+
+          {/* About Me */}
+          <p className="text-gray-300 leading-relaxed text-lg">
+            I’m a software developer with a passion for crafting elegant
+            web applications and intuitive tools. I enjoy solving problems
+            with clean code, learning new technologies, and building projects
+            that make life easier for others...
+          </p>
+        </div>
       </div>
-    </div>
     </>
-  )
+  );
 }

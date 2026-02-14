@@ -17,8 +17,12 @@ export default function Todo() {
 
     return (
         <>
+      <div className="min-h-screen bg-gray-700 text-gray-100 px-6 py-12">
+        <div className="max-w-7xl mx-auto">
             <MainHeader onCreatePost={showModalHandler} />
             <TodoCardList isPosting={modalVisible} isNotPosting={hideModalHandler}/>
-        </>
+        </div>
+      </div>
+    </>
     );
 }

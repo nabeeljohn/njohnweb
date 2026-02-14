@@ -1,7 +1,7 @@
 .form {
     background-color:#f1f1f1;
     padding: 1rem;
-    width:25rem;
+    width:50rem;
     color:black
 }
 
@@ -19,19 +19,21 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+.form input,
+.form textarea {
+     width: 100%;
+     padding: 0.25rem;
+     margin-bottom: 0.5rem;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+}
+
+.form textarea {
+     resize: vertical;
+}
 
 .actions {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
-}
-
-.actions button {
-    cursor: pointer;
-    font: inherit;
-    border: none;
-    background-color: #34036c;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
 }

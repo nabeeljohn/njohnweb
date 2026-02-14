@@ -1,19 +1,12 @@
-import Link from "next/link";
-import "../globals.css";
+import DevToolsHeader from "@/appcomponents/devtoolsheader";
 
 export default function ToolsLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
     return (
-        <>
-            <div>
-                <h1>Developer Tools</h1>
-                <p>
-                    <Link href="/tools/url">Url Encoder and Decoder</Link> |
-                    <Link href="/tools/todo">Todo - NextUp App</Link>
-                </p>
-            </div>
-            <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col">
+            <DevToolsHeader />
+            <main className="flex-1">
                 {children}
-            </div>
-        </>
+            </main>
+        </div>
     );
 }

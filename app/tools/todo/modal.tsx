@@ -1,10 +1,10 @@
-import classes from './modal.module.css';
+import { modalBackdrop, modalDialog } from '../../../appcomponents/styles';
 
 export default function Modal(props: {onClose: () => void, children: React.ReactNode}) {
     return (
         <>
-        <div className={classes.backdrop} onClick={props.onClose} />
-            <dialog open className={classes.modal}>
+            <div className={modalBackdrop} onClick={props.onClose} />
+            <dialog open className={modalDialog}>
                 {props.children}
             </dialog>
         </>
