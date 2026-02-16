@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classes from "./createtodocard.module.css";
-import { buttonPrimary } from "../../../appcomponents/styles";
+import { buttonPrimary } from "../../../appcomponents/styles/styles";
 
 export default function CreateTodoCard({ onCancel, newTodoCard }: { onCancel: () => void, newTodoCard: any }) {
 

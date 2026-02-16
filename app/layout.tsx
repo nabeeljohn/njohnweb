@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import MainFooter from "@/appcomponents/mainfooter";
+import MainFooter from "@/appcomponents/main/mainfooter";
+import MainHeader from "@/appcomponents/main/mainheader";
 
 // Fonts
 const geistSans = Geist({
@@ -31,6 +32,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-700 text-gray-100 flex flex-col min-h-screen`}
 >
+      <MainHeader />
         {/* Main content grows to fill space between header and footer */}
         <main className="flex-1">
           {children}

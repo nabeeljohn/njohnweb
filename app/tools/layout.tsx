@@ -1,8 +1,8 @@
-import DevToolsHeader from "@/appcomponents/devtoolsheader";
+import DevToolsHeader from "@/appcomponents/devtools/devtoolsheader";
 
 export default function ToolsLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="flex flex-col">
             <DevToolsHeader />
             <main className="flex-1">
                 {children}

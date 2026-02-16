@@ -9,6 +9,7 @@ import {
   MdDescription,
   MdMenu,
   MdClose,
+  MdHome,
 } from "react-icons/md";
 
 export default function MainHeader() {
@@ -19,12 +20,18 @@ export default function MainHeader() {
       <div className="max-w-7xl mx-auto px-6 flex items-center h-24">
 
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold text-lg">
-            NJ
-          </div>
-          <h1 className="text-xl font-bold">Nabeel John</h1>
-        </div>
+<div className="flex items-center gap-4">
+  {/* Logo Circle */}
+  <div className="bg-gradient-to-r from-blue-400 to-indigo-600 rounded-full w-16 h-16 flex items-center justify-center text-white font-extrabold text-2xl shadow-lg transform transition-transform duration-300 hover:scale-110">
+    NJ
+  </div>
+
+  {/* Name */}
+  <h1 className="text-3xl font-bold tracking-tight hover:text-blue-400 transition-colors">
+    Nabeel John
+  </h1>
+</div>
+
 
         {/* Hamburger (only on mobile) */}
         <button
@@ -41,6 +48,12 @@ export default function MainHeader() {
         {/* Desktop navigation (hidden on mobile) */}
         <nav className="hidden md:flex ml-auto">
           <ul className="flex gap-8 items-center">
+            <li>
+              <Link href="/" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+                <MdHome className="h-5 w-5" />
+                Home
+              </Link>
+            </li>
             <li className="flex items-center gap-1">
               <Link
                 href="/tools"

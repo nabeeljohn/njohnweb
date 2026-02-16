@@ -1,11 +1,15 @@
-import DevToolsHeader from "@/appcomponents/devtoolsheader";
+import DevToolsHeader from "@/appcomponents/devtools/devtoolsheader";
 import Link from "next/link";
+
+export const metadata = {
+  title: "NJohn Web - Developer Tools Home",
+};
 
 export default function DevToolsHome() {
   return (
     <>
       {/* Page content container */}
-      <div className="min-h-screen bg-gray-700 text-gray-100 py-12">
+      <div className="bg-gray-700 text-gray-100 py-12">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* Page Title */}

@@ -1,4 +1,4 @@
-import { modalBackdrop, modalDialog } from '../../../appcomponents/styles';
+import { modalBackdrop, modalDialog } from '../../../appcomponents/styles/styles';
 
 export default function Modal(props: {onClose: () => void, children: React.ReactNode}) {
     return (

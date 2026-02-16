@@ -1,20 +1,17 @@
 /* Center the form on the page and give some spacing */
 .form {
-    background-color: #f1f1f1;
-    padding: 2rem;               /* more padding inside the form */
-    width: 50rem;
-    max-width: 90%;              /* make responsive on smaller screens */
-    margin: 2rem auto;           /* top/bottom margin + horizontal centering */
-    color: black;
-    border-radius: 12px;         /* rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* optional subtle shadow */
+    background-color: #111827; /* dark gray-900 */
+    padding: 2rem;
+    color: #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Labels */
 .form label {
     display: block;
     font-weight: bold;
-    color: black;
+    color: #e5e7eb;
     margin-bottom: 0.25rem;
 }
 
@@ -23,10 +20,12 @@
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #4b5563;
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 1rem;
+    background-color: #1f2937;
+    color: #e5e7eb;
 }
 
 /* Textarea */
@@ -34,10 +33,12 @@
     width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #4b5563;
     border-radius: 6px;
     box-sizing: border-box;
     margin-bottom: 1rem;
+    background-color: #1f2937;
+    color: #e5e7eb;
 }
 
 /* Button container */
@@ -45,22 +46,6 @@
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
-}
-
-/* Buttons */
-.actions button {
-    cursor: pointer;
-    font: inherit;
-    border: none;
-    background-color: #34036c;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-}
-
-.actions button:hover {
-    background-color: #5b3ad4; /* hover effect */
 }
 
 /* Row for title + toggle */
@@ -87,10 +72,10 @@
 
 .toggleButton {
   display: flex;
-  border: 2px solid #34036c;
-  border-radius: 20px;
+  border: 2px solid #374151; /* bg-gray-800 */
+  border-radius: 10px;
   overflow: hidden;
-  width: 120px;
+  width: 160px;
   font-size: 0.9rem;
   font-weight: bold;
 }
@@ -99,12 +84,36 @@
   flex: 1;
   text-align: center;
   padding: 0.4rem 0;
-  background-color: white;
-  color: #34036c;
+  background-color: #374151;
+  color: #68696e;
   transition: all 0.2s ease;
 }
 
 .toggleButton .activeOption {
-  background-color: #34036c;
-  color: white;
+  background-color: #1f2937; /* bg-gray-800 */
+  color: #e5e7eb;
+}
+
+/* Responsive: stack title and toggle on small screens and make toggle full width */
+@media (max-width: 768px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .toggleContainer {
+    justify-content: stretch;
+  }
+
+  .toggleButton {
+    width: 100%;
+    max-width: none;
+    border-radius: 12px;
+  }
+
+  .toggleButton span {
+    padding: 0.6rem 0;
+    font-size: 1rem;
+  }
 }
