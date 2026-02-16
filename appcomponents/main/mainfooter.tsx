@@ -20,7 +20,7 @@ export default function Footer() {
             className="hover:text-white transition-colors transform hover:scale-110"
             title="GitHub"
           >
-            <FaGithub size={20} />
+            <FaGithub size={25} />
           </a>
           <a
             href="https://linkedin.com/in/NabeelJohn"
@@ -29,7 +29,7 @@ export default function Footer() {
             className="hover:text-white transition-colors transform hover:scale-110"
             title="LinkedIn"
           >
-            <FaLinkedin size={20} />
+            <FaLinkedin size={25} />
           </a>
           <a
             href="https://www.facebook.com/njohn83/"
@@ -38,7 +38,7 @@ export default function Footer() {
             className="hover:text-white transition-colors transform hover:scale-110"
             title="Facebook"
           >
-            <FaFacebook size={20} />
+            <FaFacebook size={25} />
           </a>
           <a
             href="https://www.instagram.com/_nabeeljohn/"
@@ -47,7 +47,7 @@ export default function Footer() {
             className="hover:text-white transition-colors transform hover:scale-110"
             title="Instagram"
           >
-            <FaInstagram size={20} />
+            <FaInstagram size={25} />
           </a>
         </div>
       </div>

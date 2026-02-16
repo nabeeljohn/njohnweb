@@ -62,9 +62,9 @@ export default function DevToolsHeader() {
     <nav className="md:hidden bg-gradient-to-r from-gray-800 to-gray-900">
       <ul className="flex flex-col gap-4 px-6 pb-4">
         <li>
-          <Link href="/" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+          <Link href="/tools/" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
             <MdHome className="h-5 w-5" />
-            Home
+            Dev Tools Home
           </Link>
         </li>
         <li>
