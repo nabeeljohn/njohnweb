@@ -11,6 +11,7 @@ import {
   MdClose,
   MdHome,
 } from "react-icons/md";
+import MainLogo from "./logo";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,17 +21,7 @@ export default function MainHeader() {
       <div className="max-w-7xl mx-auto px-6 flex items-center h-24">
 
         {/* Logo */}
-<div className="flex items-center gap-4">
-  {/* Logo Circle */}
-  <div className="bg-gradient-to-r from-blue-400 to-indigo-600 rounded-full w-16 h-16 flex items-center justify-center text-white font-extrabold text-2xl shadow-lg transform transition-transform duration-300 hover:scale-110">
-    NJ
-  </div>
-
-  {/* Name */}
-  <h1 className="text-3xl font-bold tracking-tight hover:text-blue-400 transition-colors">
-    Nabeel John
-  </h1>
-</div>
+        <MainLogo />
 
 
         {/* Hamburger (only on mobile) */}
