@@ -17,6 +17,7 @@ import MainLogo from "./logo";
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const cleanPath = pathname.replace(/\/$/, ""); // remove trailing slash for consistency
   const baseClassHome="text-blue-400 hover:text-blue-300 flex items-center gap-1";
   const baseclassLinks = "flex items-center gap-1 text-blue-400 hover:text-blue-300 transition";
   const baseclassLinksMobile = "flex items-center gap-1 text-blue-400 hover:text-blue-300";
@@ -53,7 +54,7 @@ export default function MainHeader() {
             <li className="flex items-center gap-1">
               <Link
                 href="/tools"
-                className={`${baseclassLinks} ${pathname.startsWith("/tools") ? "text-blue-200" : ""}`}>
+                className={`${baseclassLinks} ${cleanPath.startsWith("/tools") ? "text-blue-200" : ""}`}>
                 <MdBuild className="h-5 w-5" />
                 Developer Tools
               </Link>
@@ -61,7 +62,7 @@ export default function MainHeader() {
             <li className="flex items-center gap-1">
               <Link
                 href="/photography"
-                className={`${baseclassLinks} ${pathname === "/photography" ? "text-blue-200" : ""}`}
+                className={`${baseclassLinks} ${cleanPath === "/photography" ? "text-blue-200" : ""}`}
               >
                 <MdPhotoCamera className="h-5 w-5" />
                 Photography
@@ -70,7 +71,7 @@ export default function MainHeader() {
             <li className="flex items-center gap-1">
               <Link
                 href="/activities"
-                className={`${baseclassLinks} ${pathname === "/activities" ? "text-blue-200" : ""}`}
+                className={`${baseclassLinks} ${cleanPath === "/activities" ? "text-blue-200" : ""}`}
               >
                 <MdSportsSoccer className="h-5 w-5" />
                 Activities
@@ -81,7 +82,7 @@ export default function MainHeader() {
                 href="https://resume.nabeeljohn.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${baseclassLinks} ${pathname === "/resume" ? "text-blue-200" : ""}`}
+                className={`${baseclassLinks} ${cleanPath === "/resume" ? "text-blue-200" : ""}`}
               >
                 <MdDescription className="h-5 w-5" />
                 Resume
