@@ -1,4 +1,5 @@
 import MainHeader from "@/appcomponents/main/mainheader";
+import AboutMe from "@/appcomponents/main/aboutme";
 
 export const metadata = {
   title: "NJohn Web - Home"
@@ -9,11 +10,8 @@ export default function Home() {
     <>
       <div className="bg-gray-700 text-gray-100 py-12">
         <div className="max-w-7xl mx-auto px-6">
-
-          {/* Intro */}
-          <div className="flex items-center gap-4 mb-8">
-            <h1 className="text-4xl font-bold">Hi, I’m Nabeel John</h1>
-          </div>
+          
+          <AboutMe />
 
           {/* About Me */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
