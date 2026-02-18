@@ -10,7 +10,6 @@ export default function DevToolsHeader() {
   const pathname = usePathname();
   const baseclassLinks = "text-blue-400 hover:text-blue-300 flex items-center gap-1";
 
-
   return (
    <header className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white">
   <div className="max-w-7xl mx-auto px-6 flex items-center h-12">
