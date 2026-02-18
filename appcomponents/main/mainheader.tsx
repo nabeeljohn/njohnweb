@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
   MdBuild,
@@ -16,16 +15,12 @@ import MainLogo from "./logo";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const [cleanPath, setCleanPath] = useState(""); // safe fallback for pathname
+  const [currentPath, setCurrentPath] = useState("");
 
-  const pathname = usePathname();
-
+  // Hydration-safe: set current path only on client
   useEffect(() => {
-    if (pathname) {
-      // remove trailing slash for consistency
-      setCleanPath(pathname.replace(/\/$/, ""));
-    }
-  }, [pathname]);
+    setCurrentPath(window.location.pathname.replace(/\/$/, "")); // remove trailing slash
+  }, []);
 
   const baseClassHome = "text-blue-400 hover:text-blue-300 flex items-center gap-1";
   const baseclassLinks = "flex items-center gap-1 text-blue-400 hover:text-blue-300 transition";
@@ -45,13 +40,13 @@ export default function MainHeader() {
           {isOpen ? <MdClose className="h-6 w-6" /> : <MdMenu className="h-6 w-6" />}
         </button>
 
-        {/* Desktop nav */}
+        {/* Desktop navigation */}
         <nav className="hidden md:flex ml-auto">
           <ul className="flex gap-8 items-center">
             <li>
               <Link
                 href="/"
-                className={`${baseClassHome} ${cleanPath === "" ? "text-blue-200" : ""}`}
+                className={`${baseClassHome} ${currentPath === "" ? "text-blue-200" : ""}`}
               >
                 <MdHome className="h-5 w-5" /> Home
               </Link>
@@ -59,9 +54,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/tools"
-                className={`${baseclassLinks} ${
-                  cleanPath.startsWith("/tools") ? "text-blue-200" : ""
-                }`}
+                className={`${baseclassLinks} ${currentPath.startsWith("/tools") ? "text-blue-200" : ""}`}
               >
                 <MdBuild className="h-5 w-5" /> Developer Tools
               </Link>
@@ -69,7 +62,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/photography"
-                className={`${baseclassLinks} ${cleanPath === "/photography" ? "text-blue-200" : ""}`}
+                className={`${baseclassLinks} ${currentPath === "/photography" ? "text-blue-200" : ""}`}
               >
                 <MdPhotoCamera className="h-5 w-5" /> Photography
               </Link>
@@ -77,7 +70,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/activities"
-                className={`${baseclassLinks} ${cleanPath === "/activities" ? "text-blue-200" : ""}`}
+                className={`${baseclassLinks} ${currentPath === "/activities" ? "text-blue-200" : ""}`}
               >
                 <MdSportsSoccer className="h-5 w-5" /> Activities
               </Link>
@@ -103,7 +96,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/"
-                className={`${baseclassLinksMobile} ${cleanPath === "" ? "text-blue-200" : ""}`}
+                className={`${baseclassLinksMobile} ${currentPath === "" ? "text-blue-200" : ""}`}
               >
                 <MdHome className="h-5 w-5" /> Home
               </Link>
@@ -111,7 +104,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/tools"
-                className={`${baseclassLinksMobile} ${cleanPath.startsWith("/tools") ? "text-blue-200" : ""}`}
+                className={`${baseclassLinksMobile} ${currentPath.startsWith("/tools") ? "text-blue-200" : ""}`}
               >
                 <MdBuild className="h-5 w-5" /> Developer Tools
               </Link>
@@ -119,7 +112,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/photography"
-                className={`${baseclassLinksMobile} ${cleanPath === "/photography" ? "text-blue-200" : ""}`}
+                className={`${baseclassLinksMobile} ${currentPath === "/photography" ? "text-blue-200" : ""}`}
               >
                 <MdPhotoCamera className="h-5 w-5" /> Photography
               </Link>
@@ -127,7 +120,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/activities"
-                className={`${baseclassLinksMobile} ${cleanPath === "/activities" ? "text-blue-200" : ""}`}
+                className={`${baseclassLinksMobile} ${currentPath === "/activities" ? "text-blue-200" : ""}`}
               >
                 <MdSportsSoccer className="h-5 w-5" /> Activities
               </Link>
