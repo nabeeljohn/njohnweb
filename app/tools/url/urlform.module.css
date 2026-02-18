@@ -41,12 +41,6 @@
     color: #e5e7eb;
 }
 
-/* Button container */
-.actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-}
 
 /* Row for title + toggle */
 .headerRow {

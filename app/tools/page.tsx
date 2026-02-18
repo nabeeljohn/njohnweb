@@ -24,7 +24,7 @@ export default function DevToolsHome() {
               className="bg-gray-800 hover:bg-gray-900 text-center p-6 rounded-lg shadow-lg transition"
             >
               <h2 className="text-xl font-semibold text-blue-400 mb-2">
-                URL Encoder/Decoder
+                Link Lab
               </h2>
               <p className="text-gray-300 text-sm">
                 Encode or decode URLs quickly.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
   MdBuild,
@@ -15,6 +16,10 @@ import MainLogo from "./logo";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const baseClassHome="text-blue-400 hover:text-blue-300 flex items-center gap-1";
+  const baseclassLinks = "flex items-center gap-1 text-blue-400 hover:text-blue-300 transition";
+  const baseclassLinksMobile = "flex items-center gap-1 text-blue-400 hover:text-blue-300";
 
   return (
     <header className="w-full bg-gray-800 text-white">
@@ -40,7 +45,7 @@ export default function MainHeader() {
         <nav className="hidden md:flex ml-auto">
           <ul className="flex gap-8 items-center">
             <li>
-              <Link href="/" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href="/" className={`${baseClassHome} ${pathname === "/" ? "text-blue-200" : ""}`}>
                 <MdHome className="h-5 w-5" />
                 Home
               </Link>
@@ -48,8 +53,7 @@ export default function MainHeader() {
             <li className="flex items-center gap-1">
               <Link
                 href="/tools"
-                className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition"
-              >
+                className={`${baseclassLinks} ${pathname.startsWith("/tools") ? "text-blue-200" : ""}`}>
                 <MdBuild className="h-5 w-5" />
                 Developer Tools
               </Link>
@@ -57,7 +61,7 @@ export default function MainHeader() {
             <li className="flex items-center gap-1">
               <Link
                 href="/photography"
-                className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition"
+                className={`${baseclassLinks} ${pathname === "/photography" ? "text-blue-200" : ""}`}
               >
                 <MdPhotoCamera className="h-5 w-5" />
                 Photography
@@ -66,7 +70,7 @@ export default function MainHeader() {
             <li className="flex items-center gap-1">
               <Link
                 href="/activities"
-                className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition"
+                className={`${baseclassLinks} ${pathname === "/activities" ? "text-blue-200" : ""}`}
               >
                 <MdSportsSoccer className="h-5 w-5" />
                 Activities
@@ -77,7 +81,7 @@ export default function MainHeader() {
                 href="https://resume.nabeeljohn.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition"
+                className={`${baseclassLinks} ${pathname === "/resume" ? "text-blue-200" : ""}`}
               >
                 <MdDescription className="h-5 w-5" />
                 Resume
@@ -93,8 +97,17 @@ export default function MainHeader() {
           <ul className="flex flex-col gap-4">
             <li>
               <Link
+                href="/"
+                className={`${baseclassLinksMobile} ${pathname === "/" ? "text-blue-200" : ""}`}
+              >
+                <MdHome className="h-5 w-5" />
+                Home
+              </Link>
+            </li>            
+            <li>
+              <Link
                 href="/tools"
-                className="flex items-center gap-1 text-blue-400 hover:text-blue-300"
+                className={`${baseclassLinksMobile} ${pathname.startsWith("/tools") ? "text-blue-200" : ""}`}
               >
                 <MdBuild className="h-5 w-5" />
                 Developer Tools
@@ -103,7 +116,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/photography"
-                className="flex items-center gap-1 text-blue-400 hover:text-blue-300"
+                className={`${baseclassLinksMobile} ${pathname === "/photography" ? "text-blue-200" : ""}`}
               >
                 <MdPhotoCamera className="h-5 w-5" />
                 Photography
@@ -112,7 +125,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/activities"
-                className="flex items-center gap-1 text-blue-400 hover:text-blue-300"
+                className={`${baseclassLinksMobile} ${pathname === "/activities" ? "text-blue-200" : ""}`}
               >
                 <MdSportsSoccer className="h-5 w-5" />
                 Activities

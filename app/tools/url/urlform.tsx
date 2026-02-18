@@ -53,7 +53,6 @@ export default function UrlForm() {
   };
 
   const [copied, setCopied] = useState(false);
-
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(setAsideUrl);
@@ -73,7 +72,6 @@ export default function UrlForm() {
           {/* Title + toggle in one row */}
           <div className={classes.headerRow}>
             <h1 className={classes.title}>Link Lab - URL Encoder & Decoder</h1>
-
             <div className={classes.toggleContainer} onClick={toggleHandler}>
               <div className={classes.toggleButton}>
                 <span className={isEncode ? classes.activeOption : ''}>Encode</span>
@@ -81,7 +79,6 @@ export default function UrlForm() {
               </div>
             </div>
           </div>
-
           <fieldset>
             <label htmlFor="url-input">URL to {isEncode ? 'Encode' : 'Decode'}:</label>
             <input
@@ -92,7 +89,6 @@ export default function UrlForm() {
               onChange={inputUrlHandler}
             />
           </fieldset>
-
           <fieldset>
             <label htmlFor="formattedUrl">{isEncode ? 'Encoded' : 'Decoded'} URL:</label>
             <textarea
@@ -104,40 +100,49 @@ export default function UrlForm() {
             />
           </fieldset>
 
-          <div className={classes.actions}>
+          <div className="flex flex-col sm:flex-row sm:justify-end gap-3">
             <button
               type="button"
               onClick={setAsideHandler}
               disabled={!outputUrl}
               aria-disabled={!outputUrl}
-              className={`${buttonPrimary} ${!outputUrl ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`${buttonPrimary} w-full sm:w-auto ${!outputUrl ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
             >
               Set Aside
             </button>
-            <button type="button" onClick={handleEncodeDecode} className={buttonPrimary}>{submitButtonTitle}</button>
+            <button
+              type="button"
+              onClick={handleEncodeDecode}
+              className={`${buttonPrimary} w-full sm:w-auto`}
+            >
+              {submitButtonTitle}
+            </button>
           </div>
 
           {setAsideUrl && (
-  <div className="bg-gray-800 p-6 rounded-lg shadow-lg opacity-60 mt-6">
-    <div className="flex items-center justify-between">
-      <p className="text-left break-all">{setAsideUrl}</p>
-      <div className="flex items-center gap-2">
-        <button
-          type="button"
-          onClick={handleCopy}
-          className={buttonSecondary}
-        >
-          Copy to Clipboard
-        </button>
-        {copied && (
-          <span className="text-green-400 text-sm">Copied!</span>
-        )}
-      </div>
-    </div>
-  </div>
-)}
-
-
+            <div className="bg-gray-800 p-6 rounded-lg shadow-lg opacity-60 mt-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <p className="text-left break-all w-full sm:w-auto">
+                  {setAsideUrl}
+                </p>
+                <div className="flex items-center gap-2 w-full sm:w-auto">
+                  <button
+                    type="button"
+                    onClick={handleCopy}
+                    className={`${buttonSecondary} w-full sm:w-auto`}
+                  >
+                    Copy to Clipboard
+                  </button>
+                  {copied && (
+                    <span className="text-green-400 text-sm whitespace-nowrap">
+                      Copied!
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </form>
       </div>
     </div>
