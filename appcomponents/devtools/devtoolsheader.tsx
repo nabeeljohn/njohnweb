@@ -11,7 +11,7 @@ export default function DevToolsHeader() {
   const baseclassLinks = "text-blue-400 hover:text-blue-300 flex items-center gap-1";
 
   return (
-   <header className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+  <header className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white">
   <div className="max-w-7xl mx-auto px-6 flex items-center h-12">
 
     {/* Push everything to the right */}
@@ -43,7 +43,6 @@ export default function DevToolsHeader() {
           </li>
         </ul>
       </nav>
-
     </div>
 
     {/* Hamburger for mobile */}
@@ -57,7 +56,6 @@ export default function DevToolsHeader() {
         <MdMenu className="h-6 w-6" />
       )}
     </button>
-
   </div>
 
   {/* Mobile Menu */}
@@ -86,7 +84,5 @@ export default function DevToolsHeader() {
     </nav>
   )}
 </header>
-
-
   );
 }
