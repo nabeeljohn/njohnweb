@@ -5,7 +5,7 @@ const { Client } = pkg;
 
 export async function GET() {
   const client = new Client({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.NJOHNWEB_DATABASE_URL,
   });
 
   try {
