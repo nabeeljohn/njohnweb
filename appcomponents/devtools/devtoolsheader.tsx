@@ -8,7 +8,9 @@ import { usePathname } from "next/navigation";
 export default function DevToolsHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const baseclassLinks = "text-blue-400 hover:text-blue-300 flex items-center gap-1";
+  const baseclassLinks = "hover:text-blue-300 flex items-center gap-1";
+  const inactiveClass = "text-blue-400";
+  const activeClass = "text-blue-200";
 
   return (
   <header className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white">
@@ -24,19 +26,19 @@ export default function DevToolsHeader() {
       <nav className="hidden md:flex">
         <ul className="flex gap-6 items-center">
           <li>
-            <Link href="/tools/" className={`${baseclassLinks} ${pathname === "/tools" ? "text-blue-200" : ""}`}>
+            <Link href="/tools" className={`${baseclassLinks} ${pathname === "/tools" ? activeClass : inactiveClass}`}>
               <MdHome className="h-5 w-5" />
               Dev Tools Home
             </Link>
           </li>
           <li>
-            <Link href="/tools/url" className={`${baseclassLinks} ${pathname === "/tools/url" ? "text-blue-200" : ""}`}>
+            <Link href="/tools/url" className={`${baseclassLinks} ${pathname === "/tools/url" ? activeClass : inactiveClass}`}>
               <MdLink className="h-5 w-5" />
               Link Lab
             </Link>
           </li>
           <li>
-            <Link href="/tools/todo" className={`${baseclassLinks} ${pathname === "/tools/todo" ? "text-blue-200" : ""}`}>
+            <Link href="/tools/todo" className={`${baseclassLinks} ${pathname === "/tools/todo" ? activeClass : inactiveClass}`}>
               <MdChecklist className="h-5 w-5" />
               Todo List
             </Link>
