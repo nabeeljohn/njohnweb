@@ -10,10 +10,7 @@ export default function Home() {
     <>
       <div className="bg-gray-700 text-gray-100 py-12">
         <div className="max-w-7xl mx-auto px-6">
-          
           <AboutMe />
-
-          {/* About Me */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
             <div className="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transition-transform">
               <h2 className="font-bold mb-2">Coding</h2>
@@ -34,20 +31,16 @@ export default function Home() {
               </p>
             </div>
           </div>
-
-
-<div className="grid md:grid-cols-2 gap-6 mt-12">
-  <div className="p-6 border rounded-lg hover:shadow-lg transition">
-    <h2 className="text-xl font-bold mb-2">URL Encoder</h2>
-    <p>Quickly encode and decode URLs with ease.</p>
-  </div>
-  <div className="p-6 border rounded-lg hover:shadow-lg transition">
-    <h2 className="text-xl font-bold mb-2">Todo List</h2>
-    <p>Manage tasks and projects efficiently.</p>
-  </div>
-</div>
-
-
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            <div className="p-6 border rounded-lg hover:shadow-lg transition">
+              <h2 className="text-xl font-bold mb-2">URL Encoder</h2>
+              <p>Quickly encode and decode URLs with ease.</p>
+            </div>
+            <div className="p-6 border rounded-lg hover:shadow-lg transition">
+              <h2 className="text-xl font-bold mb-2">Todo List</h2>
+              <p>Manage tasks and projects efficiently.</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
