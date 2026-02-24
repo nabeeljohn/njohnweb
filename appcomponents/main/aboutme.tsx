@@ -4,7 +4,6 @@ import profilePic from "@/public/images/njohnphoto.jpg";
 export default function AboutMe() {
   return (
     <div className="w-full flex flex-col md:flex-row items-start gap-6 md:gap-8 p-4 md:p-0">
-
       {/* Left Column: Image */}
       <div className="w-full md:w-[300px] flex justify-center md:justify-start">
         <div className="bg-gray-800 p-4 rounded-lg shadow-lg md:p-0 md:bg-transparent">
@@ -36,7 +35,6 @@ export default function AboutMe() {
           Outside of development, you’ll usually find me behind a camera. I enjoy photography, hiking, and exploring new places — constantly looking for perspective and inspiration both on and off the screen.
         </p>
       </div>
-
     </div>
   );
 }
