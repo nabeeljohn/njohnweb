@@ -20,9 +20,6 @@ export default async function ContactsPage() {
         <h1 className="text-3xl font-bold mb-8">Contacts</h1>
         {/* Placeholder Content */}
         <div className="bg-gray-800 text-center p-6 rounded-lg shadow-lg">
-          <h2 className="text-xl font-semibold text-gray-400 mb-2">
-            Contacts List
-          </h2>
           <div className="text-white">
             {returnedcontacts.length === 0 ? (
               <div>No contacts found.</div>
