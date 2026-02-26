@@ -5,7 +5,10 @@ type Contact = {
 };
 
 async function getContacts(): Promise<Contact[]> {
-  const res = await fetch("http://localhost:3000/api/contacts", { cache: "no-store" });
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  if (!baseUrl) throw new Error("NEXT_PUBLIC_BASE_URL is not defined");
+
+  const res = await fetch(`${baseUrl}/api/contacts`, { cache: "no-store" });
   const data = await res.json();
   return Array.isArray(data) ? data : [];
 }
