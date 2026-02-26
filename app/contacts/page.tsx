@@ -1,8 +1,4 @@
-type Contact = {
-  first_name: string;
-  last_name: string;
-  email_address: string;
-};
+import ContactsList, { Contact } from "./contactslist";
 
 async function getContacts(): Promise<Contact[]> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -14,21 +10,15 @@ async function getContacts(): Promise<Contact[]> {
 }
 
 export default async function ContactsPage() {
-  const contacts = await getContacts();
+  const returnedcontacts = await getContacts();
 
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-4">Contacts</h1>
-      {contacts.length === 0 ? (
+      {returnedcontacts.length === 0 ? (
         <div>No contacts found.</div>
       ) : (
-        <ul className="space-y-2">
-          {contacts.map((c, i) => (
-            <li key={i}>
-              {c.first_name} {c.last_name} — {c.email_address}
-            </li>
-          ))}
-        </ul>
+        <ContactsList contacts={returnedcontacts} />
       )}
     </div>
   );
