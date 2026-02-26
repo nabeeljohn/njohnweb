@@ -1,25 +1,17 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 type Contact = {
   first_name: string;
   last_name: string;
   email_address: string;
 };
 
-export default function ContactsPage() {
-  const [contacts, setContacts] = useState<Contact[]>([]);
-  const [loading, setLoading] = useState(true);
+async function getContacts(): Promise<Contact[]> {
+  const res = await fetch("http://localhost:3000/api/contacts", { cache: "no-store" });
+  const data = await res.json();
+  return Array.isArray(data) ? data : [];
+}
 
-  useEffect(() => {
-    fetch("/api/contacts")
-      .then((res) => res.json())
-      .then((data) => setContacts(data))
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
+export default async function ContactsPage() {
+  const contacts = await getContacts();
 
   return (
     <div className="p-8">
