@@ -3,6 +3,9 @@ import pkg from "pg";
 
 const { Client } = pkg;
 
+// helper delay function
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export async function GET() {
   const client = new Client({
     connectionString: process.env.NJOHNWEB_DATABASE_URL,
@@ -14,6 +17,9 @@ export async function GET() {
     const res = await client.query(
       "SELECT first_name, last_name, email_address FROM contact"
     );
+
+    // Add 5 second delay
+    await delay(5000);
 
     await client.end();
 
