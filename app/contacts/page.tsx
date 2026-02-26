@@ -13,7 +13,6 @@ export default async function ContactsPage() {
   const returnedcontacts = await getContacts();
 
   return (
-
     <div className="bg-gray-700 text-gray-100 py-12">
       <div className="max-w-7xl mx-auto px-6">
         {/* Page Title */}
