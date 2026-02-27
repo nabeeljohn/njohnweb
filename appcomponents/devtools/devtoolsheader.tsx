@@ -94,6 +94,18 @@ export default function DevToolsHeader() {
             Todo List
           </Link>
         </li>
+        <li>
+          <Link href="/tools/jwt" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+            <MdLock className="h-5 w-5" />
+            JWT Generator
+          </Link>
+        </li>
+        <li>
+          <Link href="/tools/saml" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+            <MdVerifiedUser className="h-5 w-5" />
+            SAML Utility
+          </Link>
+        </li>        
       </ul>
     </nav>
   )}
