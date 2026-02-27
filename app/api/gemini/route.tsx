@@ -1,26 +1,29 @@
-import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { NextResponse } from "next/server";
 
-interface RequestBody {
-  message: string;
-}
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
-    const { message } = (await req.json()) as RequestBody;
+    const { messages } = await req.json();
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.5-flash",
+    });
 
-    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
+    const result = await model.generateContent({
+      contents: messages.map((msg: any) => ({
+        role: msg.role === "assistant" ? "model" : "user",
+        parts: [{ text: msg.content }],
+      })),
+    });
 
-    const result = await model.generateContent(message);
-    const response = await result.response;
-
-    return NextResponse.json({ reply: response.text() });
-  } catch (error) {
-    console.error("Gemini API error:", error);
+    const reply = result.response.text();
+    return NextResponse.json({ reply: reply ?? "" });
+  } catch (error: any) {
+    console.error("API ERROR:", error);
     return NextResponse.json(
-      { error: "Something went wrong with Gemini API" },
+      { error: error.message || "Something went wrong" },
       { status: 500 }
     );
   }
