@@ -43,6 +43,7 @@ export default function DevToolsHome() {
               <p className="text-gray-300 text-sm">
                 Save and manage todos.
               </p>
+              <p className="text-gray-500 text-xs mt-1">Requires Login</p>
             </Link>
 
             {/* JWT Generator */}
@@ -58,21 +59,31 @@ export default function DevToolsHome() {
               </p>
             </Link>
 
-            {/* Placeholder 2 */}
-            <div className="bg-gray-800 text-center p-6 rounded-lg shadow-lg opacity-60 cursor-not-allowed">
-              <h2 className="text-xl font-semibold text-gray-400 mb-2">
-                Tool Placeholder
+            {/* SAML Utility */}
+            <Link
+              href="/tools/saml"
+              className={cardStyle}
+            >
+              <h2 className="text-xl font-semibold text-blue-400 mb-2">
+                SAML Utility
               </h2>
-              <p className="text-gray-500 text-sm">Coming soon…</p>
-            </div>
+              <p className="text-gray-300 text-sm">
+                Decode, inspect and verify SAML messages.
+              </p>
+            </Link>
 
-            {/* Placeholder 3 */}
-            <div className="bg-gray-800 text-center p-6 rounded-lg shadow-lg opacity-60 cursor-not-allowed">
-              <h2 className="text-xl font-semibold text-gray-400 mb-2">
-                Tool Placeholder
+            {/* XML and JSON Formatter */}
+            <Link
+              href="/tools/saml"
+              className={cardStyle}
+            >
+              <h2 className="text-xl font-semibold text-blue-400 mb-2">
+                XML & JSON Formatter
               </h2>
-              <p className="text-gray-500 text-sm">Coming soon…</p>
-            </div>
+              <p className="text-gray-300 text-sm">
+                Format and validate XML and JSON data.
+              </p>
+            </Link>
 
             {/* Placeholder 4 */}
             <div className="bg-gray-800 text-center p-6 rounded-lg shadow-lg opacity-60 cursor-not-allowed">
