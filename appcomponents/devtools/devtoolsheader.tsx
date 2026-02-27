@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MdHome, MdLink, MdChecklist, MdMenu, MdClose } from "react-icons/md";
+import { MdHome, MdLink, MdChecklist, MdMenu, MdClose, MdLock, MdVerifiedUser  } from "react-icons/md";
 import { usePathname } from "next/navigation";
 
 export default function DevToolsHeader() {
@@ -43,6 +43,18 @@ export default function DevToolsHeader() {
               Todo List
             </Link>
           </li>
+          <li>
+            <Link href="/tools/jwt" className={`${baseclassLinks} ${pathname === "/tools/jwt" ? activeClass : inactiveClass}`}>
+              <MdLock className="h-5 w-5" />
+              JWT Generator
+            </Link>
+          </li>  
+          <li>
+            <Link href="/tools/saml" className={`${baseclassLinks} ${pathname === "/tools/saml" ? activeClass : inactiveClass}`}>
+              <MdVerifiedUser className="h-5 w-5" />
+              SAML Utility
+            </Link>
+          </li>                   
         </ul>
       </nav>
     </div>
