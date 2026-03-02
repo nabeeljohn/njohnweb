@@ -24,11 +24,11 @@ export default function AboutMe() {
         </h1>
 
         <h3 className="text-lg md:text-xl font-semibold mb-3 leading-relaxed">
-          Integration Developer at Higher Logic specializing in APIs, SSO, and scalable web solutions.
+          Integration Developer specializing in APIs, SSO, and scalable web solutions.
         </h3>
 
         <p className="text-base md:text-lg leading-relaxed mb-4">
-          I design and build reliable integrations that connect systems, simplify workflows, and solve real business problems. My experience spans REST APIs, web services, authentication (OAuth, SAML, SSO), and modern frontend technologies like React and Next.js, backed by .NET on the server side.
+          I design and build reliable integrations that connect systems, simplify workflows, and solve real business problems. My experience spans REST APIs, web services, identity & access management (OAuth, SAML, SSO), and modern frontend technologies like React and Next.js, backed by .NET on the server side.
         </p>
 
         <p className="text-base md:text-lg leading-relaxed">
