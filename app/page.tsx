@@ -42,7 +42,7 @@ export default function Home() {
               {/* Camera Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-pink-400"
+                className="h-8 w-8 text-blue-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -66,7 +66,7 @@ export default function Home() {
               {/* Leaf Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-green-400"
+                className="h-8 w-8 text-blue-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -75,12 +75,12 @@ export default function Home() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M12 2C8.13 2 4.21 3.63 2 7c2.21 3.37 6.13 5 10 5s7.79-1.63 10-5c-2.21-3.37-6.13-5-10-5z"
+                  d="M3 20l7-10 4 6 3-4 4 8H3z"
                 />
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M12 12v10m-3-3l3 3 3-3"
+                  d="M10 10l2 3 2-3"
                 />
               </svg>
               <h2 className="font-bold mb-2">Nature</h2>
