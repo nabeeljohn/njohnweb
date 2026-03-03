@@ -34,14 +34,14 @@ export default function DevToolsHome() {
 
             {/* Todo List */}
             <Link
-              href="/tools/todo"
+              href="/tools/tasks"
               className={cardStyle}
             >
               <h2 className="text-xl font-semibold text-blue-400 mb-2">
-                Todo List
+                Tasks
               </h2>
               <p className="text-gray-300 text-sm">
-                Save and manage todos.
+                Manage your tasks and action items.
               </p>
               <p className="text-gray-500 text-xs mt-1">Requires Login</p>
             </Link>
@@ -86,12 +86,18 @@ export default function DevToolsHome() {
             </Link>
 
             {/* Placeholder 4 */}
-            <div className="bg-gray-800 text-center p-6 rounded-lg shadow-lg opacity-60 cursor-not-allowed">
-              <h2 className="text-xl font-semibold text-gray-400 mb-2">
-                Tool Placeholder
+            <Link
+              href="/tools/todo"
+              className={cardStyle}
+            >
+              <h2 className="text-xl font-semibold text-blue-400 mb-2">
+                Payment Tracker
               </h2>
-              <p className="text-gray-500 text-sm">Coming soon…</p>
-            </div>
+              <p className="text-gray-300 text-sm">
+                Track and manage payments.
+              </p>
+              <p className="text-gray-500 text-xs mt-1">Requires Login</p>
+            </Link>
 
           </div>
         </div>

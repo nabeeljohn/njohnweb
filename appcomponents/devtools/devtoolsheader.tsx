@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { MdHome, MdLink, MdChecklist, MdMenu, MdClose, MdLock, MdVerifiedUser  } from "react-icons/md";
+import { MdHome, MdLink, MdChecklist, MdMenu, MdClose, MdLock, MdVerifiedUser, MdPayment, MdCode} from "react-icons/md";
 import { usePathname } from "next/navigation";
 
 export default function DevToolsHeader() {
@@ -38,9 +38,9 @@ export default function DevToolsHeader() {
             </Link>
           </li>
           <li>
-            <Link href="/tools/todo" className={`${baseclassLinks} ${pathname === "/tools/todo" ? activeClass : inactiveClass}`}>
+            <Link href="/tools/tasks" className={`${baseclassLinks} ${pathname === "/tools/tasks" ? activeClass : inactiveClass}`}>
               <MdChecklist className="h-5 w-5" />
-              Todo List
+              Tasks
             </Link>
           </li>
           <li>
@@ -54,7 +54,19 @@ export default function DevToolsHeader() {
               <MdVerifiedUser className="h-5 w-5" />
               SAML Utility
             </Link>
-          </li>                   
+          </li>
+                      <li>
+            <Link href="/tools/formatter" className={`${baseclassLinks} ${pathname === "/tools/formatter" ? activeClass : inactiveClass}`}>
+              <MdCode className="h-5 w-5" />
+              XML and JSON Formatter
+            </Link>
+          </li>
+            <li>
+            <Link href="/tools/payment" className={`${baseclassLinks} ${pathname === "/tools/payment" ? activeClass : inactiveClass}`}>
+              <MdPayment className="h-5 w-5" />
+              Payment Tracker
+            </Link>
+          </li>                               
         </ul>
       </nav>
     </div>
@@ -89,9 +101,9 @@ export default function DevToolsHeader() {
           </Link>
         </li>
         <li>
-          <Link href="/tools/todo" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+          <Link href="/tools/tasks" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
             <MdChecklist className="h-5 w-5" />
-            Todo List
+            Tasks
           </Link>
         </li>
         <li>
