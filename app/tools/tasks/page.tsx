@@ -1,6 +1,8 @@
 import TaskList from "./tasklist";
 import pkg from "pg";
 
+export const dynamic = "force-dynamic";
+
 const { Client } = pkg;
 
 export default async function Tasks() {
