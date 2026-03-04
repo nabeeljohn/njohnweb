@@ -1,7 +1,7 @@
 // TaskList.tsx
 import Task from "./task";
 
-export default function TaskList({ tasks = [] }: { tasks?: any[] }) {
+export default function TaskList({ tasks = [], deleteTaskAction }: { tasks?: any[], deleteTaskAction: (taskid: string) => Promise<void> }) {
   return (
     <div className="w-full h-full p-0">
       {/* Heading with count */}
@@ -15,9 +15,9 @@ export default function TaskList({ tasks = [] }: { tasks?: any[] }) {
       {tasks.length === 0 ? (
         <p className="text-gray-400">No tasks available</p>
       ) : (
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {tasks.map((task) => (
-            <Task key={task.taskid} task={task} />
+            <Task key={task.taskid} task={task} deleteTaskAction={deleteTaskAction}/>
           ))}
         </div>
       )}
