@@ -10,23 +10,41 @@ export default function ContactPage() {
     message: '',
   });
 
+  const [successMessage, setSuccessMessage] = useState('');
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(form); // Replace with API call
-    alert('Message sent!');
-    setForm({ name: '', email: '', location: '', message: '' });
+
+    const res = await fetch('/api/contactme', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    })
+
+    if (res.ok) {
+      setSuccessMessage('Message sent successfully!');
+      setForm({ name: '', email: '', location: '', message: '' });
+    } else {
+      setSuccessMessage('Failed to send message. Please try again later.');
+    }
   };
 
   return (
     <div className="h-full flex items-center justify-center bg-gray-700 text-gray-100 pt-24 pb-24 px-4">
       <div className="bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
+
+        {successMessage && (
+          <div className="bg-green-500 text-white p-3 rounded mb-6 text-center">
+            {successMessage}
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name */}
