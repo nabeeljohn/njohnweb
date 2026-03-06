@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const photos = [
   "/photography/photo01.jpg",
@@ -70,12 +71,16 @@ export default function PhotographyHome() {
               </p>
             </div>
             <div className="flex gap-2">
-              <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-semibold">
-                Book a Session
-              </button>
-              <button className="bg-gray-600 hover:bg-gray-500 px-4 py-2 rounded font-semibold">
-                View Gallery
-              </button>
+              <Link href="/photography/booking">
+                <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-semibold">
+                  Book a Session
+                </button>
+              </Link>
+              <Link href="/photography/gallery">
+                <button className="bg-gray-600 hover:bg-gray-500 px-4 py-2 rounded font-semibold">
+                  View Gallery
+                </button>
+              </Link>
             </div>
           </div>
 
