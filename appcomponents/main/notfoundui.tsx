@@ -11,6 +11,9 @@ export default function NotFoundUI() {
         <Link href="/" className="text-blue-400 hover:text-blue-500 text-sm">
           Go back to Home
         </Link>
+        <Link href="/contactme" className="text-blue-400 hover:text-blue-500 text-sm ml-4">
+          Contact Me
+        </Link>
       </div>
     </div>
   );
