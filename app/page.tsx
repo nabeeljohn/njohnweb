@@ -1,5 +1,6 @@
 import MainHeader from "@/appcomponents/main/mainheader";
 import AboutMe from "@/appcomponents/main/aboutme";
+import Link from "next/link";
 
 export const metadata = {
   title: "NJohn Web - Home"
@@ -97,12 +98,12 @@ export default function Home() {
               <h2 className="text-2xl font-bold mb-3">Let’s Work Together</h2>
               <p className="text-gray-400 mb-6">Have an idea, a challenge, or something worth exploring? I’m always open to meaningful conversations.
               </p>
-              <a
+              <Link
                 href="/contactme"
                 className="inline-block px-5 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
               >
                 Contact Me
-              </a>
+              </Link>
             </div>
             {/* Projects CTA */}
             <div className="p-8 border rounded-lg hover:shadow-lg transition bg-gray-800">
@@ -110,12 +111,12 @@ export default function Home() {
               <p className="text-gray-400 mb-6">
                 Explore my latest projects, experiments, and the tools I’m currently working on.
               </p>
-              <a
-                href="/projects"
+              <Link
+                href="/tools"
                 className="inline-block px-5 py-3 bg-gray-700 text-white rounded hover:bg-gray-600 transition"
               >
                 View My Work
-              </a>
+              </Link>
             </div>
           </div>
         </div>
