@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { startTransition, useState, useTransition } from 'react';
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -10,7 +10,8 @@ export default function ContactPage() {
     message: '',
   });
 
-  const [successMessage, setSuccessMessage] = useState(''); 
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isPending, startTransition] = useTransition();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,18 +22,20 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('/api/contactme', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    })
+    startTransition(async () => {
+      const res = await fetch('/api/contactme', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
 
-    if (res.ok) {
-      setSuccessMessage('Message sent successfully!');
-      setForm({ name: '', email: '', location: '', message: '' });
-    } else {
-      setSuccessMessage('Failed to send message. Please try again later.');
-    }
+      if (res.ok) {
+        setSuccessMessage('Message sent successfully!');
+        setForm({ name: '', email: '', location: '', message: '' });
+      } else {
+        setSuccessMessage('Failed to send message. Please try again later.');
+      }
+    });
   };
 
   return (
@@ -104,7 +107,7 @@ export default function ContactPage() {
             type="submit"
             className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition"
           >
-            Send Message
+            {isPending ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       </div>
