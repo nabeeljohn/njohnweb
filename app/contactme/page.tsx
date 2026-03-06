@@ -2,13 +2,15 @@
 
 import { useState, useTransition } from 'react';
 
+const emailSubject = 'nabeeljohn.com Contact Form';
+
 export default function ContactPage() {
   const [form, setForm] = useState({
     name: '',
     email: '',
     location: '',
     message: '',
-    subject: 'nabeeljohn.com Contact Form',
+    subject: emailSubject,
   });
 
   const [successMessage, setSuccessMessage] = useState('');
@@ -32,7 +34,7 @@ export default function ContactPage() {
 
       if (res.ok) {
         setSuccessMessage('Message sent successfully!');
-        setForm({ name: '', email: '', location: '', message: '', subject: '' });
+        setForm({ name: '', email: '', location: '', message: '', subject: emailSubject });
       } else {
         setSuccessMessage('Failed to send message. Please try again later.');
       }
