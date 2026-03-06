@@ -23,7 +23,9 @@ export async function POST(req: Request) {
           Name: ${name}
           Email: ${email}
           Location: ${location}
-          Message: ${message}`,
+          
+          Message:
+          ${message}`,
     });
 
     return NextResponse.json({ success: true });
