@@ -108,7 +108,11 @@ export default function ContactPage() {
           {/* Submit */}
           <button
             type="submit"
-            className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition"
+            className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-500 
+             disabled:bg-gray-500 disabled:cursor-not-allowed 
+             disabled:hover:bg-gray-500
+             text-white font-semibold transition"
+            disabled={isPending}
           >
             {isPending ? 'Sending...' : 'Send Message'}
           </button>
