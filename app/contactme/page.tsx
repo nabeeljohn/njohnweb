@@ -1,6 +1,6 @@
 'use client';
 
-import { startTransition, useState, useTransition } from 'react';
+import { useState, useTransition } from 'react';
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -8,6 +8,7 @@ export default function ContactPage() {
     email: '',
     location: '',
     message: '',
+    subject: 'nabeeljohn.com Contact Form',
   });
 
   const [successMessage, setSuccessMessage] = useState('');
@@ -31,7 +32,7 @@ export default function ContactPage() {
 
       if (res.ok) {
         setSuccessMessage('Message sent successfully!');
-        setForm({ name: '', email: '', location: '', message: '' });
+        setForm({ name: '', email: '', location: '', message: '', subject: '' });
       } else {
         setSuccessMessage('Failed to send message. Please try again later.');
       }

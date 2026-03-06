@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, location, message } = await req.json();
+    const { name, email, location, message, subject } = await req.json();
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -18,15 +18,12 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from: process.env.SMTP_USER,
       to: process.env.CONTACT_TO,
-      subject: "New Contact Form Message",
+      subject: subject,
       text: `
-Name: ${name}
-Email: ${email}
-Location: ${location}
-
-Message:
-${message}
-      `,
+          Name: ${name}
+          Email: ${email}
+          Location: ${location}
+          Message: ${message}`,
     });
 
     return NextResponse.json({ success: true });
