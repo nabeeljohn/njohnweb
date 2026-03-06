@@ -10,7 +10,7 @@ export default function ContactPage() {
     message: '',
   });
 
-  const [successMessage, setSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState(''); 
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -41,7 +41,7 @@ export default function ContactPage() {
         <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
 
         {successMessage && (
-          <div className="bg-green-500 text-white p-3 rounded mb-6 text-center">
+          <div className={successMessage.includes('successfully') ? 'bg-green-500 text-white p-3 rounded mb-6' : 'bg-red-500 text-white p-3 rounded mb-6'}>
             {successMessage}
           </div>
         )}
