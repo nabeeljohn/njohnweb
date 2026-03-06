@@ -33,7 +33,7 @@ export default function ContactPage() {
       })
 
       if (res.ok) {
-        setSuccessMessage('Message sent successfully!');
+        setSuccessMessage(`Thanks ${form.name}! Message sent.`);
         setForm({ name: '', email: '', location: '', message: '', subject: emailSubject });
       } else {
         setSuccessMessage('Failed to send message. Please try again later.');
@@ -47,7 +47,7 @@ export default function ContactPage() {
         <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
 
         {successMessage && (
-          <div className={successMessage.includes('successfully') ? 'bg-green-500 text-white p-3 rounded mb-6' : 'bg-red-500 text-white p-3 rounded mb-6'}>
+          <div className={successMessage.includes('sent') ? 'bg-green-500 text-white p-3 rounded mb-6' : 'bg-red-500 text-white p-3 rounded mb-6'}>
             {successMessage}
           </div>
         )}
