@@ -1,9 +1,9 @@
-import MainHeader from "@/appcomponents/main/mainheader";
 import AboutMe from "@/appcomponents/main/aboutme";
 import Link from "next/link";
+import { pageTitle } from "@/lib/metadata/metadata";
 
 export const metadata = {
-  title: "NJohn Web - Home"
+  title: pageTitle("Home")
 };
 
 export default function Home() {

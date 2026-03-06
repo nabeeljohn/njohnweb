@@ -3,6 +3,12 @@ import { createTask, getTasks, deleteTask, deleteAllTasks } from "@/lib/tasks/db
 import CreateTaskModal from "./createtaskmodal";
 import DeleteAllButton from "./deleteallbutton";
 import { revalidatePath } from "next/cache";
+import { pageTitle } from "@/lib/metadata/metadata";
+
+export const metadata = {
+    title: pageTitle("Tasks"),
+    description: "Manage your tasks and action items with NJohn Web's Task Manager. Create, view, and delete tasks to stay organized and productive.",
+};
 
 export const dynamic = "force-dynamic";
 

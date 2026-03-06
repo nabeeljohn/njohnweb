@@ -1,10 +1,11 @@
-import DevToolsHeader from "@/appcomponents/devtools/devtoolsheader";
 import Link from "next/link";
+import { pageTitle } from "@/lib/metadata/metadata";
+
+export const metadata = {
+  title: pageTitle("Developer Tools"),
+};
 
 const cardStyle = "bg-gray-800 hover:bg-gray-900 text-center p-6 rounded-lg shadow-lg transition"
-export const metadata = {
-  title: "NJohn Web - Developer Tools Home",
-};
 
 export default function DevToolsHome() {
   return (

@@ -1,7 +1,8 @@
 import UrlForm from "./urlform";
+import { pageTitle } from "@/lib/metadata/metadata";
 
 export const metadata = {
-  title: "NJohn Web - Link Lab",
+  title: pageTitle("Link Lab"),
 };
 
 export default function URLTool() {
