@@ -75,7 +75,7 @@ export default function DevToolsHome() {
 
             {/* XML and JSON Formatter */}
             <Link
-              href="/tools/saml"
+              href="/tools/formatter"
               className={cardStyle}
             >
               <h2 className="text-xl font-semibold text-blue-400 mb-2">
