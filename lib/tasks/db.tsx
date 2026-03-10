@@ -37,6 +37,15 @@ export async function deleteTask(taskid: string) {
   await client.end();
 }
 
+export async function editTask(taskid: string, title: string, description: string) {
+  const client = new Client({
+    connectionString: process.env.NJOHNWEB_DATABASE_URL,
+  });
+  await client.connect();
+  await client.query("UPDATE tasks SET title = $1, description = $2 WHERE taskid = $3", [title, description, taskid]);
+  await client.end();
+}
+
 export async function deleteAllTasks() {
   const client = new Client({
     connectionString: process.env.NJOHNWEB_DATABASE_URL,

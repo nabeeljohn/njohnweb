@@ -58,7 +58,7 @@ export default function CreateTaskModal({
                                 <label className="block text-sm mb-1">Description</label>
                                 <textarea
                                     name="description"
-                                    rows={3}
+                                    rows={6}
                                     className="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500"
                                     required
                                 />

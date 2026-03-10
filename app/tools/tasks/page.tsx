@@ -1,5 +1,5 @@
 import TaskList from "./tasklist";
-import { createTask, getTasks, deleteTask, deleteAllTasks } from "@/lib/tasks/db";
+import { createTask, getTasks, deleteTask, deleteAllTasks, editTask } from "@/lib/tasks/db";
 import CreateTaskModal from "./createtaskmodal";
 import DeleteAllButton from "./deleteallbutton";
 import { revalidatePath } from "next/cache";
@@ -31,6 +31,13 @@ export default async function Tasks() {
         revalidatePath("/tools/tasks"); // revalidate the current page to reflect the deletion
     }
 
+    async function handleEditTask(taskid: string, title: string, description: string) {
+        "use server";
+        console.log("Editing task:", taskid);
+        await editTask(taskid, title, description);
+        revalidatePath("/tools/tasks"); // revalidate the current page to reflect the changes
+    }
+
     async function handleDeleteAllTasks() {
         "use server";
         console.log("Deleting all tasks");
@@ -50,8 +57,10 @@ export default async function Tasks() {
                         <DeleteAllButton action={handleDeleteAllTasks} />
                     </div>
                 </div>
-
-                <TaskList tasks={res} deleteTaskAction={handleDeleteTask} />
+                <div className="mt-8 mb-8 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-4 text-yellow-200 text-sm">
+                    ⚠️ This tool is currently in development. Authentication will be required once it is fully implemented.
+                </div>
+                <TaskList tasks={res} deleteTaskAction={handleDeleteTask} editTaskAction={handleEditTask} />
             </div>
         </div>
     );
