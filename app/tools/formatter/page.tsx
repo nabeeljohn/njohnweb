@@ -21,25 +21,17 @@ export default function JSONXMLFormatter() {
             return JSON.stringify(parsed, null, 2);
         } catch (e) {
             return "Invalid JSON";
-        }   
+        }
     }
-    
+
     return (
         <div className="bg-gray-700 text-gray-100 py-12">
             <div className="max-w-7xl mx-auto px-6">
 
                 <h1 className="text-3xl font-bold mb-6">JSON/XML Formatter</h1>
 
-                <p className="text-gray-400 mb-4">
-                    Format and beautify your JSON or XML data for better readability.
-                </p>
-
-                <p className="text-gray-400 mb-4">
-                    Simply paste your JSON or XML data into the input box, and the formatted result will appear in the output box.
-                </p>
-
                 <p className="text-gray-400 mb-8">
-                    This tool is perfect for developers who want to quickly format their data without leaving the browser.
+                    Format and beautify your JSON or XML data for improved readability.
                 </p>
 
                 <div className="space-y-8">
