@@ -31,13 +31,12 @@ export default function RootLayout({
       <body
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-700 text-gray-100 flex flex-col min-h-screen`}
->
-      <MainHeader />
+      >
+        <MainHeader />
         {/* Main content grows to fill space between header and footer */}
         <main className="flex-1">
           {children}
         </main>
-
         <MainFooter />
       </body>
     </html>

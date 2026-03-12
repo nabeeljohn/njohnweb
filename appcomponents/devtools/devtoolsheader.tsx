@@ -56,7 +56,7 @@ export default function DevToolsHeader() {
                 </Link>
               </li>
               <li>
-                <Link href="/tools/formatter" className={`${baseclassLinks} ${pathname === "/tools/formatter" ? activeClass : inactiveClass}`}>
+                <Link href="/tools/formatter" className={`${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`}>
                   <MdCode className="h-5 w-5" />
                   XML and JSON Formatter
                 </Link>
