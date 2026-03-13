@@ -1,11 +1,11 @@
 'use client';
 
-import { SubmitBooking } from "@/lib/photography/booking/booking";
+import { submitBooking } from "@/lib/photography/booking/booking";
 import { useActionState } from "react";
 
 export default function BookingForm() {
 
-    const [state, formAction, isPending] = useActionState(SubmitBooking, { success: false });
+    const [state, formAction, isPending] = useActionState(submitBooking, { success: false });
 
     return (
         <div className="h-full flex items-center justify-center bg-gray-700 text-gray-100 pt-24 pb-24 px-4">

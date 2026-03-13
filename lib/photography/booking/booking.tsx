@@ -2,7 +2,7 @@
 
 import nodemailer from "nodemailer";
 
-export async function SubmitBooking(prevState: {success:boolean}, formData: FormData) {
+export async function submitBooking(prevState: {success:boolean}, formData: FormData) {
     try {
 
         const booking = {
