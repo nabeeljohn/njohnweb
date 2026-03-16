@@ -65,7 +65,7 @@ export default function ChatPage() {
 
   return (
     <div className="bg-gray-700 text-gray-100 py-12">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col h-[80vh]">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col h-[70vh]">
         {/* Page Title */}
         <h1 className="text-3xl font-bold mb-4">Chat with Milo</h1>
 

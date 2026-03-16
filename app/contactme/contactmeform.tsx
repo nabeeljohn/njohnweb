@@ -44,8 +44,9 @@ export default function ContactMeForm() {
     };
 
     return (
-        <div className="h-full flex items-center justify-center bg-gray-700 text-gray-100 pt-24 pb-24 px-4">
-            <div className="bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-md">
+        <div className="h-full flex items-center justify-center bg-gray-700 text-gray-100 pt-12 pb-12 px-4">
+            <div className="bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-xl">
+
                 <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
 
                 {successMessage && (

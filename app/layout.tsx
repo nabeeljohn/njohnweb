@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MainFooter from "@/appcomponents/main/mainfooter";
 import MainHeader from "@/appcomponents/main/mainheader";
+import MainLayoutConfiguration from "@/appcomponents/main/mainlayoutconfiguration";
 
 // Fonts
 const geistSans = Geist({
@@ -26,6 +27,7 @@ export default function RootLayout({
 }: {
   children: ReactNode;
 }) {
+
   return (
     <html lang="en">
       <body
@@ -33,9 +35,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-700 text-gray-100 flex flex-col min-h-screen`}
       >
         <MainHeader />
-        {/* Main content grows to fill space between header and footer */}
         <main className="flex-1">
-          {children}
+          <MainLayoutConfiguration>
+            {children}
+          </MainLayoutConfiguration>
         </main>
         <MainFooter />
       </body>

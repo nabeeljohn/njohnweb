@@ -46,22 +46,19 @@ export default async function Tasks() {
     }
 
     return (
-        <div className="bg-gray-700 text-gray-100 py-12">
-            <div className="max-w-7xl mx-auto px-6">
-
-                {/* Title row */}
-                <div className="flex items-center justify-between mb-6">
-                    <h1 className="text-3xl font-bold">Tasks</h1>
-                    <div className="flex space-x-3">
-                        <CreateTaskModal action={handleCreateTask} />
-                        <DeleteAllButton action={handleDeleteAllTasks} />
-                    </div>
+        <>
+            {/* Title row */}
+            <div className="flex items-center justify-between mb-6">
+                <h1 className="text-3xl font-bold">Tasks</h1>
+                <div className="flex space-x-3">
+                    <CreateTaskModal action={handleCreateTask} />
+                    <DeleteAllButton action={handleDeleteAllTasks} />
                 </div>
-                <div className="mt-8 mb-8 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-4 text-yellow-200 text-sm">
-                    ⚠️ This tool is currently in development. Authentication will be required once it is fully implemented.
-                </div>
-                <TaskList tasks={res} deleteTaskAction={handleDeleteTask} editTaskAction={handleEditTask} />
             </div>
-        </div>
+            <div className="mt-8 mb-8 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-4 text-yellow-200 text-sm">
+                ⚠️ This tool is currently in development. Authentication will be required once it is fully implemented.
+            </div>
+            <TaskList tasks={res} deleteTaskAction={handleDeleteTask} editTaskAction={handleEditTask} />
+        </>
     );
 }
