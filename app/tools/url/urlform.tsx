@@ -49,7 +49,7 @@ export default function UrlForm() {
       <form className="w-full bg-gray-800 p-8 rounded-lg shadow-lg space-y-6">
         {/* Header & Toggle */}
         <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-4">
-          <h1 className="text-2xl font-bold text-white">Link Lab - URL Encoder & Decoder</h1>
+          <h1 className="text-2xl font-bold text-white">URL Encoder & Decoder</h1>
 
           {/* Toggle Pill */}
           <div className="relative w-40 h-10 bg-gray-700 rounded-full cursor-pointer flex" onClick={toggleHandler}>
