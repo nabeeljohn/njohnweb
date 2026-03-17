@@ -3,17 +3,15 @@
 import { useState, useTransition } from "react";
 import EditTaskModal from "./edittaskmodal";
 
-export default function Task({
-  task,
-  deleteTaskAction,
-  editTaskAction,
-  isCompletedTaskAction,
-}: {
+type TaskProps = {
   task: any;
   deleteTaskAction: (taskid: string) => Promise<void>;
   editTaskAction: (taskid: string, title: string, description: string) => Promise<void>;
   isCompletedTaskAction: (taskid: string) => Promise<void>;
-}) {
+};
+
+export default function Task({task, deleteTaskAction, editTaskAction, isCompletedTaskAction}: TaskProps) {
+  
   // Initialize the transition hook
   const [isDeleting, startDeleteTransition] = useTransition();
   const [isCompleting, startCompleteTransition] = useTransition();

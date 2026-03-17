@@ -2,11 +2,12 @@
 
 import { useState, useTransition } from "react";
 
-export default function CreateTaskModal({
-    action,
-}: {
+type CreateTaskModalProps = {
     action: (formData: FormData) => Promise<void>;
-}) {
+};
+
+export default function CreateTaskModal({action}: CreateTaskModalProps) {
+
     const [open, setOpen] = useState(false);
     const [isPending, startTransition] = useTransition();
 

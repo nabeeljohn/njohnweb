@@ -2,15 +2,14 @@
 
 import { useState, useEffect, useTransition } from "react";
 
-export default function EditTaskModal({
-  task,
-  onClose,
-  onSave,
-}: {
+type EditTaskModalProps = {
   task: any;
   onClose: () => void;
   onSave: (taskid: string, title: string, description: string) => void;
-}) {
+};
+
+export default function EditTaskModal({task, onClose, onSave}: EditTaskModalProps) {
+  
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isPending, startTransition] = useTransition();

@@ -1,16 +1,14 @@
 import Task from "./task";
 
-export default function TaskList({
-  tasks = [],
-  deleteTaskAction,
-  editTaskAction,
-  isCompletedTaskAction,
-}: {
+type TaskListProps = {
   tasks?: any[];
   deleteTaskAction: (taskid: string) => Promise<void>;
   editTaskAction: (taskid: string, title: string, description: string) => Promise<void>;
   isCompletedTaskAction: (taskid: string) => Promise<void>;
-}) {
+};
+
+export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction, isCompletedTaskAction }: TaskListProps) {
+
   // Sort tasks: incomplete first, then completed; within each group by createdon
   const sortedTasks = [...tasks].sort((a, b) => {
     // Move completed tasks to the end

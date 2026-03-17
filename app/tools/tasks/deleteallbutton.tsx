@@ -1,11 +1,11 @@
 "use client";
 import { useTransition } from "react";
 
-export default function DeleteAllButton({
-  action,
-}: {
+type DeleteAllButtonProps = {
   action: () => Promise<void>;
-}) {
+};
+
+export default function DeleteAllButton({action}: DeleteAllButtonProps) {
   const [isPending, startTransition] = useTransition();
 
   const handleClick = () => {
