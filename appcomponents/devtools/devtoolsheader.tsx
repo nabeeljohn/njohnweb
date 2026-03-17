@@ -16,6 +16,7 @@ export default function DevToolsHeader() {
   const toolsHomeStyling = `${baseclassLinks} ${pathname === "/tools" ? activeClass : inactiveClass}`;
   const linkLabStyling = `${baseclassLinks} ${pathname === "/tools/url" ? activeClass : inactiveClass}`;
   const tasksStyling = `${baseclassLinks} ${pathname === "/tools/tasks" ? activeClass : inactiveClass}`
+  const samlStyling = `${baseclassLinks} ${pathname === "/tools/saml" ? activeClass : inactiveClass}`;
   const formatterStyling = `${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`;
   const payTrackerStyling = `${baseclassLinks} ${pathname === "/tools/paytracker" ? activeClass : inactiveClass}`;
 
@@ -58,7 +59,7 @@ export default function DevToolsHeader() {
                 </Link>
               </li>
               <li>
-                <Link href="/tools/saml" className={`${baseclassLinks} ${pathname === "/tools/saml" ? activeClass : inactiveClass}`}>
+                <Link href="/tools/saml" className={samlStyling}>
                   <MdVerifiedUser className="h-5 w-5" />
                   SAML Utility
                 </Link>
@@ -121,7 +122,7 @@ export default function DevToolsHeader() {
               </Link>
             </li>
             <li>
-              <Link href="/tools/saml" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href="/tools/saml" className={`${baseclassLinks} ${pathname === "/tools/saml" ? activeClass : inactiveClass}`}>
                 <MdVerifiedUser className="h-5 w-5" />
                 SAML Utility
               </Link>
