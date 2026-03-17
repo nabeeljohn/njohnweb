@@ -27,7 +27,7 @@ export default async function Tasks() {
                 </div>
             </div>
             <div className="mt-8 mb-8 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-4 text-yellow-200 text-sm">
-                ⚠️ This tool is currently in development. Authentication will be required once it is fully implemented.
+                ⚠️ This tool is currently in development. Authentication will be required for user context once it is fully implemented.
             </div>
             <TaskList tasks={res} deleteTaskAction={handleDeleteTask} editTaskAction={handleEditTask} isCompletedTaskAction={handleMarkIsCompleted}/>
         </>
