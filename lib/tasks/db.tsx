@@ -1,6 +1,11 @@
 import pkg from "pg";
+import { Pool } from "pg";
 
 const { Client } = pkg;
+
+export const pool = new Pool({
+  connectionString: process.env.NJOHNWEB_DATABASE_URL,
+});
 
 export async function getTasks() {
         const client = new Client({
@@ -8,7 +13,7 @@ export async function getTasks() {
     });
     await client.connect();
     const res = await client.query(
-        "SELECT contactid, taskid, title, description, createdon FROM tasks"
+        "SELECT contactid, taskid, title, description, createdon, is_completed FROM tasks"
     );
     await client.end();
     console.log("Fetched tasks new:", res.rows); // check terminal
@@ -53,4 +58,11 @@ export async function deleteAllTasks() {
   await client.connect();
   await client.query("DELETE FROM tasks"); // deletes all rows
   await client.end();
+}
+
+export async function markIsCompleted(taskId: string) {
+  await pool.query(
+    "UPDATE tasks SET is_completed = true WHERE taskid = $1",
+    [taskId]
+  );
 }
