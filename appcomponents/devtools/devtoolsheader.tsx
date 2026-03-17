@@ -12,6 +12,14 @@ export default function DevToolsHeader() {
   const inactiveClass = "text-blue-400";
   const activeClass = "text-blue-200";
 
+  // Styling
+  const toolsHomeStyling = `${baseclassLinks} ${pathname === "/tools" ? activeClass : inactiveClass}`;
+  const linkLabStyling = `${baseclassLinks} ${pathname === "/tools/url" ? activeClass : inactiveClass}`;
+  const tasksStyling = `${baseclassLinks} ${pathname === "/tools/tasks" ? activeClass : inactiveClass}`
+  const formatterStyling = `${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`;
+  const payTrackerStyling = `${baseclassLinks} ${pathname === "/tools/paytracker" ? activeClass : inactiveClass}`;
+
+
   return (
     <header className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-6 flex items-center h-12">
@@ -26,19 +34,19 @@ export default function DevToolsHeader() {
           <nav className="hidden md:flex">
             <ul className="flex gap-6 items-center">
               <li>
-                <Link href="/tools" className={`${baseclassLinks} ${pathname === "/tools" ? activeClass : inactiveClass}`}>
+                <Link href="/tools" className={toolsHomeStyling}>
                   <MdHome className="h-5 w-5" />
                   Dev Tools Home
                 </Link>
               </li>
               <li>
-                <Link href="/tools/url" className={`${baseclassLinks} ${pathname === "/tools/url" ? activeClass : inactiveClass}`}>
+                <Link href="/tools/url" className={linkLabStyling}>
                   <MdLink className="h-5 w-5" />
                   Link Lab
                 </Link>
               </li>
               <li>
-                <Link href="/tools/tasks" className={`${baseclassLinks} ${pathname === "/tools/tasks" ? activeClass : inactiveClass}`}>
+                <Link href="/tools/tasks" className={tasksStyling}>
                   <MdChecklist className="h-5 w-5" />
                   Tasks
                 </Link>
@@ -56,15 +64,15 @@ export default function DevToolsHeader() {
                 </Link>
               </li>
               <li>
-                <Link href="/tools/formatter" className={`${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`}>
+                <Link href="/tools/formatter" className={formatterStyling}>
                   <MdCode className="h-5 w-5" />
                   XML and JSON Formatter
                 </Link>
               </li>
               <li>
-                <Link href="/tools/payment" className={`${baseclassLinks} ${pathname === "/tools/payment" ? activeClass : inactiveClass}`}>
+                <Link href="/tools/paytracker" className={payTrackerStyling}>
                   <MdPayment className="h-5 w-5" />
-                  Payment Tracker
+                  PayTracker
                 </Link>
               </li>
             </ul>
@@ -89,19 +97,19 @@ export default function DevToolsHeader() {
         <nav className="md:hidden bg-gradient-to-r from-gray-800 to-gray-900">
           <ul className="flex flex-col gap-4 px-6 pb-4">
             <li>
-              <Link href="/tools/" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href="/tools/" className={toolsHomeStyling}>
                 <MdHome className="h-5 w-5" />
                 Dev Tools Home
               </Link>
             </li>
             <li>
-              <Link href="/tools/url" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href="/tools/url" className={linkLabStyling}>
                 <MdLink className="h-5 w-5" />
-                URL Encoder
+                Link Lab
               </Link>
             </li>
             <li>
-              <Link href="/tools/tasks" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href="/tools/tasks" className={tasksStyling}>
                 <MdChecklist className="h-5 w-5" />
                 Tasks
               </Link>
@@ -119,15 +127,15 @@ export default function DevToolsHeader() {
               </Link>
             </li>
             <li>
-              <Link href="/tools/formatter" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href="/tools/formatter" className={`${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`}>
                 <MdVerifiedUser className="h-5 w-5" />
                 Xml and JSON Formatter
               </Link>
             </li>
             <li>
-              <Link href="/tools/payment" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href="/tools/payments" className={payTrackerStyling}>
                 <MdPayment className="h-5 w-5" />
-                Payment Tracker
+                PayTracker
               </Link>
             </li>
           </ul>
