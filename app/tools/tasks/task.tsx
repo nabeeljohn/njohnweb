@@ -11,7 +11,6 @@ type TaskProps = {
 };
 
 export default function Task({task, deleteTaskAction, editTaskAction, isCompletedTaskAction}: TaskProps) {
-  
   // Initialize the transition hook
   const [isDeleting, startDeleteTransition] = useTransition();
   const [isCompleting, startCompleteTransition] = useTransition();
