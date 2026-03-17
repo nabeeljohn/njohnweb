@@ -44,7 +44,7 @@ export default function JSONXMLFormatter() {
             </p>
 
             {/* Toggle + Buttons Container */}
-            <div className="flex items-center justify-between mb-4">
+<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                 {/* Left: Toggle JSON/XML */}
                 <div className="flex gap-2 bg-gray-800 p-2 rounded-full">
                     {["json", "xml"].map((type) => (
