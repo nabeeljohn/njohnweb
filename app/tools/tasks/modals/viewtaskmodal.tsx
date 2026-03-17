@@ -23,16 +23,35 @@ export default function ViewTaskModal({ task, onClose }: ViewTaskModalProps) {
           Created on:{" "}
           {typeof task.createdon === "string"
             ? task.createdon
-            : new Date(task.createdon).toLocaleDateString()}
+            : new Date(task.createdon).toLocaleString(undefined, {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+            })}
         </p>
+        {task.is_completed && (<p className="text-sm text-gray-400">
+          Completed on: March 17, 2026 at 12:42 PM
+        </p>)}
 
-        <div className="flex justify-end mt-6">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition"
-          >
-            Close
-          </button>
+        <div className="flex items-center mt-6">
+          {/* Left: Completed label */}
+          {task.is_completed && (
+            <span className="text-xs font-bold px-2 py-1 bg-green-600/20 text-green-400 rounded">
+              COMPLETED
+            </span>
+          )}
+
+          {/* Right: Close button */}
+          <div className="ml-auto">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
