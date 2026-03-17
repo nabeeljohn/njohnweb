@@ -60,9 +60,9 @@ export async function deleteAllTasks() {
   await client.end();
 }
 
-export async function markIsCompleted(taskId: string) {
+export async function toggleIsCompleted(taskId: string) {
   await pool.query(
-    "UPDATE tasks SET is_completed = true WHERE taskid = $1",
+    "UPDATE tasks SET is_completed = NOT is_completed WHERE taskid = $1",
     [taskId]
   );
 }

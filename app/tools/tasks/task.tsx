@@ -52,7 +52,7 @@ export default function Task({
               className="text-blue-400 hover:text-blue-500 text-sm"
               onClick={() => startCompleteTransition(() => isCompletedTaskAction(task.taskid))}
             >
-              Mark Done
+              {isCompleted ? "Mark Pending" : "Mark Completed"}
             </button>
 
             <button

@@ -1,9 +1,10 @@
 import TaskList from "./tasklist";
-import { createTask, getTasks, deleteTask, deleteAllTasks, editTask, markIsCompleted } from "@/lib/tasks/db";
+import { getTasks } from "@/lib/tasks/db";
 import CreateTaskModal from "./createtaskmodal";
 import DeleteAllButton from "./deleteallbutton";
-import { revalidatePath } from "next/cache";
 import { pageTitle } from "@/lib/metadata/metadata";
+import { handleCreateTask, handleDeleteTask, handleEditTask, handleDeleteAllTasks, handleMarkIsCompleted } from "@/lib/tasks/actions";
+
 
 export const metadata = {
     title: pageTitle("Tasks"),
@@ -14,43 +15,6 @@ export const dynamic = "force-dynamic";
 
 export default async function Tasks() {
     const res = await getTasks();
-
-    async function handleCreateTask(formData: FormData) {
-        "use server";
-        const title = formData.get("title") as string;
-        const description = formData.get("description") as string;
-        console.log("Creating task:", { title, description });
-        await createTask(title, description);
-        revalidatePath("/tools/tasks"); // revalidate the current page to show the new task
-    }
-
-    async function handleDeleteTask(taskid: string) {
-        "use server";
-        console.log("Deleting task:", taskid);
-        await deleteTask(taskid);
-        revalidatePath("/tools/tasks"); // revalidate the current page to reflect the deletion
-    }
-
-    async function handleEditTask(taskid: string, title: string, description: string) {
-        "use server";
-        console.log("Editing task:", taskid);
-        await editTask(taskid, title, description);
-        revalidatePath("/tools/tasks"); // revalidate the current page to reflect the changes
-    }
-
-    async function handleDeleteAllTasks() {
-        "use server";
-        console.log("Deleting all tasks");
-        await deleteAllTasks();
-        revalidatePath("/tools/tasks"); // revalidate the current page to reflect the deletion
-    }
-
-    async function handleMarkIsCompleted(taskid: string) {
-        "use server"
-        console.log("Marking IsCompleted");
-        await markIsCompleted(taskid);
-        revalidatePath("/tools/tasks");
-    }
 
     return (
         <>
