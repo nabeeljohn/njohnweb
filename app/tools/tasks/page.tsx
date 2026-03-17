@@ -1,7 +1,7 @@
 import TaskList from "./tasklist";
 import { getTasks } from "@/lib/tasks/db";
-import CreateTaskModal from "./createtaskmodal";
-import DeleteAllButton from "./deleteallbutton";
+import CreateTaskModal from "./modals/createtaskmodal";
+import DeleteAllButton from "./modals/deleteallbutton";
 import { pageTitle } from "@/lib/metadata/metadata";
 import { handleCreateTask, handleDeleteTask, handleEditTask, handleDeleteAllTasks, handleMarkIsCompleted } from "@/lib/tasks/actions";
 
