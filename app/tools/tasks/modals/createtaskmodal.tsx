@@ -16,7 +16,7 @@ export default function CreateTaskModal({action}: CreateTaskModalProps) {
             {/* Open Button */}
             <button
                 onClick={() => setOpen(true)}
-                className="bg-gray-900 hover:bg-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition"
+                className="bg-gray-800 hover:bg-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition"
             >
                 Create Task
             </button>

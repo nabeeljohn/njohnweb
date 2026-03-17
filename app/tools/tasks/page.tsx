@@ -21,7 +21,7 @@ export default async function Tasks() {
             {/* Title row */}
             <div className="flex items-center justify-between mb-6">
                 <h1 className="text-3xl font-bold">Tasks</h1>
-                <div className="flex space-x-3">
+                <div className="flex gap-3">
                     <CreateTaskModal action={handleCreateTask} />
                     <DeleteAllButton action={handleDeleteAllTasks} />
                 </div>
