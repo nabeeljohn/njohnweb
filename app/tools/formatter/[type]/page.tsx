@@ -44,16 +44,17 @@ export default function JSONXMLFormatter() {
             </p>
 
             {/* Toggle + Buttons Container */}
-<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+
                 {/* Left: Toggle JSON/XML */}
-                <div className="flex gap-2 bg-gray-800 p-2 rounded-full">
+                <div className="flex w-full sm:w-auto gap-2 bg-gray-800 p-2 rounded-full">
                     {["json", "xml"].map((type) => (
                         <button
                             key={type}
                             onClick={() => setInputType(type as "json" | "xml")}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition ${inputType === type
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                            className={`flex-1 px-4 py-2 rounded-full text-sm font-medium transition ${inputType === type
+                                    ? "bg-blue-600 text-white"
+                                    : "bg-gray-700 text-gray-300 hover:bg-gray-600"
                                 }`}
                         >
                             {type.toUpperCase()}
@@ -62,16 +63,16 @@ export default function JSONXMLFormatter() {
                 </div>
 
                 {/* Right: Format / Minify */}
-                <div className="flex gap-2">
+                <div className="flex w-full sm:w-auto gap-2">
                     <button
                         onClick={() => handleFormat(output)}
-                        className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded text-sm min-w-[100px]"
+                        className="flex-1 sm:flex-none bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded text-sm"
                     >
                         Format
                     </button>
                     <button
                         onClick={() => handleMinify(output)}
-                        className="bg-gray-900 hover:bg-gray-800 px-6 py-2 rounded text-sm min-w-[100px]"
+                        className="flex-1 sm:flex-none bg-gray-900 hover:bg-gray-800 px-6 py-2 rounded text-sm"
                     >
                         Minify
                     </button>
