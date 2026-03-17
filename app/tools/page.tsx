@@ -84,11 +84,11 @@ export default function DevToolsHome() {
 
         {/* Placeholder 4 */}
         <Link
-          href="/tools/todo"
+          href="/tools/paytracker"
           className={cardStyle}
         >
           <h2 className="text-xl font-semibold text-blue-400 mb-2">
-            Payment Tracker
+            PayTracker
           </h2>
           <p className="text-gray-300 text-sm">
             Track and manage payments.

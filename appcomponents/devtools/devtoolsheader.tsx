@@ -134,7 +134,7 @@ export default function DevToolsHeader() {
               </Link>
             </li>
             <li>
-              <Link href="/tools/payments" className={payTrackerStyling}>
+              <Link href="/tools/paytracker" className={payTrackerStyling}>
                 <MdPayment className="h-5 w-5" />
                 PayTracker
               </Link>
