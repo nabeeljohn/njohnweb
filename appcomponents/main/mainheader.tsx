@@ -6,7 +6,7 @@ import Link from "next/link";
 import {
   MdBuild,
   MdPhotoCamera,
-  MdSportsSoccer,
+  MdDashboard,
   MdDescription,
   MdMenu,
   MdClose,
@@ -74,11 +74,11 @@ export default function MainHeader() {
             </li>
             <li>
               <Link
-                href="/activities"
-                className={`${linkBase} ${isActive("/activities") ? activeClass : inactiveClass}`}
+                href="/dashboard"
+                className={`${linkBase} ${isActive("/dashboard") ? activeClass : inactiveClass}`}
               >
-                <MdSportsSoccer className="h-5 w-5" />
-                Activities
+                <MdDashboard className="h-5 w-5" />
+                Dashboard
               </Link>
             </li>
             <li>
@@ -142,8 +142,8 @@ export default function MainHeader() {
                 href="/activities"
                 className={`${linkBase} ${isActive("/activities") ? activeClass : inactiveClass}`}
               >
-                <MdSportsSoccer className="h-5 w-5" />
-                Activities
+                <MdDashboard className="h-5 w-5" />
+                Dashboard
               </Link>
             </li>
             <li>
