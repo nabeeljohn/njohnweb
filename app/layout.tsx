@@ -5,6 +5,7 @@ import "./globals.css";
 import MainFooter from "@/appcomponents/main/mainfooter";
 import MainHeader from "@/appcomponents/main/mainheader";
 import MainLayoutConfiguration from "@/appcomponents/main/mainlayoutconfiguration";
+import GoogleAnalytics from "@/appcomponents/analytics/googleanalytics";
 
 // Fonts
 const geistSans = Geist({
@@ -34,6 +35,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-700 text-gray-100 flex flex-col min-h-screen`}
       >
+        <GoogleAnalytics />
         <MainHeader />
         <main className="flex-1">
           <MainLayoutConfiguration>
