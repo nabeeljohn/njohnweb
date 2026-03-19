@@ -7,8 +7,7 @@ export const metadata = {
 
 
 export default function PayTracker() {
-    return
-    (
+    return (
         <PayTrackerPlaceholder />
     );
 }
