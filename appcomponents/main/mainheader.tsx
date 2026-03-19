@@ -4,9 +4,9 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
+  MdApps,
   MdBuild,
   MdPhotoCamera,
-  MdDashboard,
   MdDescription,
   MdMenu,
   MdClose,
@@ -26,6 +26,12 @@ export default function MainHeader() {
     path === "/"
       ? pathname === "/"
       : pathname === path || pathname.startsWith(path + "/");
+
+  const homeStyles = `${linkBase} ${isActive("/") ? activeClass : inactiveClass}`;
+  const devtoolsStyles = `${linkBase} ${isActive("/tools/dev") ? activeClass : inactiveClass}`;
+  const productivityToolsStyles = `${linkBase} ${isActive("/tools/productivity") ? activeClass : inactiveClass}`;
+  const photographyStyles = `${linkBase} ${isActive("/photography") ? activeClass : inactiveClass}`;
+  const resumeStyles = `${linkBase} ${isActive("/resume") ? activeClass : inactiveClass}`;
 
   return (
     <header className="w-full bg-gray-800 text-white">
@@ -48,7 +54,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/"
-                className={`${linkBase} ${isActive("/") ? activeClass : inactiveClass}`}
+                className={homeStyles}
               >
                 <MdHome className="h-5 w-5" />
                 Home
@@ -56,8 +62,8 @@ export default function MainHeader() {
             </li>
             <li>
               <Link
-                href="/tools"
-                className={`${linkBase} ${isActive("/tools") ? activeClass : inactiveClass}`}
+                href="/tools/dev"
+                className={devtoolsStyles}
               >
                 <MdBuild className="h-5 w-5" />
                 Developer Tools
@@ -65,20 +71,20 @@ export default function MainHeader() {
             </li>
             <li>
               <Link
-                href="/photography"
-                className={`${linkBase} ${isActive("/photography") ? activeClass : inactiveClass}`}
+                href="/tools/productivity"
+                className={productivityToolsStyles}
               >
-                <MdPhotoCamera className="h-5 w-5" />
-                Photography
+                <MdApps className="h-5 w-5" />
+                Productivity Tools
               </Link>
             </li>
             <li>
               <Link
-                href="/dashboard"
-                className={`${linkBase} ${isActive("/dashboard") ? activeClass : inactiveClass}`}
+                href="/photography"
+                className={photographyStyles}
               >
-                <MdDashboard className="h-5 w-5" />
-                Dashboard
+                <MdPhotoCamera className="h-5 w-5" />
+                Photography
               </Link>
             </li>
             <li>
@@ -86,7 +92,7 @@ export default function MainHeader() {
                 href="https://resume.nabeeljohn.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${linkBase} ${isActive("/resume") ? activeClass : inactiveClass}`}
+                className={resumeStyles}
               >
                 <MdDescription className="h-5 w-5" />
                 Resume
@@ -113,7 +119,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/"
-                className={`${linkBase} ${isActive("/") ? activeClass : inactiveClass}`}
+                className={homeStyles}
               >
                 <MdHome className="h-5 w-5" />
                 Home
@@ -121,8 +127,8 @@ export default function MainHeader() {
             </li>
             <li>
               <Link
-                href="/tools"
-                className={`${linkBase} ${isActive("/tools") ? activeClass : inactiveClass}`}
+                href="/tools/dev"
+                className={toolsStyles}
               >
                 <MdBuild className="h-5 w-5" />
                 Developer Tools
@@ -130,20 +136,20 @@ export default function MainHeader() {
             </li>
             <li>
               <Link
-                href="/photography"
-                className={`${linkBase} ${isActive("/photography") ? activeClass : inactiveClass}`}
+                href="/tools/productivity"
+                className={productivityStyles}
               >
-                <MdPhotoCamera className="h-5 w-5" />
-                Photography
+                <MdApps className="h-5 w-5" />
+                Productivity Tools
               </Link>
             </li>
             <li>
               <Link
-                href="/activities"
-                className={`${linkBase} ${isActive("/activities") ? activeClass : inactiveClass}`}
+                href="/photography"
+                className={photographyStyles}
               >
-                <MdDashboard className="h-5 w-5" />
-                Dashboard
+                <MdPhotoCamera className="h-5 w-5" />
+                Photography
               </Link>
             </li>
             <li>
@@ -151,7 +157,7 @@ export default function MainHeader() {
                 href="https://resume.nabeeljohn.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-blue-400 hover:text-blue-300"
+                className={resumeStyles}
               >
                 <MdDescription className="h-5 w-5" />
                 Resume

@@ -13,12 +13,12 @@ export default function DevToolsHeader() {
   const activeClass = "text-blue-200";
 
   // Styling
-  const toolsHomeStyling = `${baseclassLinks} ${pathname === "/tools" ? activeClass : inactiveClass}`;
-  const linkLabStyling = `${baseclassLinks} ${pathname === "/tools/url" ? activeClass : inactiveClass}`;
-  const tasksStyling = `${baseclassLinks} ${pathname === "/tools/tasks" ? activeClass : inactiveClass}`
-  const samlStyling = `${baseclassLinks} ${pathname === "/tools/saml" ? activeClass : inactiveClass}`;
-  const formatterStyling = `${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`;
-  const payTrackerStyling = `${baseclassLinks} ${pathname === "/tools/paytracker" ? activeClass : inactiveClass}`;
+  const toolsHomeStyling = `${baseclassLinks} ${pathname === "/tools/dev" ? activeClass : inactiveClass}`;
+  const linkLabStyling = `${baseclassLinks} ${pathname === "/tools/dev/url" ? activeClass : inactiveClass}`;
+  const tasksStyling = `${baseclassLinks} ${pathname === "/tools/dev/tasks" ? activeClass : inactiveClass}`
+  const samlStyling = `${baseclassLinks} ${pathname === "/tools/dev/saml" ? activeClass : inactiveClass}`;
+  const formatterStyling = `${baseclassLinks} ${pathname.includes("/tools/dev/formatter") ? activeClass : inactiveClass}`;
+  const payTrackerStyling = `${baseclassLinks} ${pathname === "/tools/dev/paytracker" ? activeClass : inactiveClass}`;
 
 
   return (
@@ -35,43 +35,43 @@ export default function DevToolsHeader() {
           <nav className="hidden md:flex">
             <ul className="flex gap-6 items-center">
               <li>
-                <Link href="/tools" className={toolsHomeStyling}>
+                <Link href="/tools/dev/" className={toolsHomeStyling}>
                   <MdHome className="h-5 w-5" />
                   Dev Tools Home
                 </Link>
               </li>
               <li>
-                <Link href="/tools/url" className={linkLabStyling}>
+                <Link href="/tools/dev/url" className={linkLabStyling}>
                   <MdLink className="h-5 w-5" />
                   Link Lab
                 </Link>
               </li>
               <li>
-                <Link href="/tools/tasks" className={tasksStyling}>
+                <Link href="/tools/dev/tasks" className={tasksStyling}>
                   <MdChecklist className="h-5 w-5" />
                   Tasks
                 </Link>
               </li>
               <li>
-                <Link href="/tools/jwt" className={`${baseclassLinks} ${pathname === "/tools/jwt" ? activeClass : inactiveClass}`}>
+                <Link href="/tools/dev/jwt" className={`${baseclassLinks} ${pathname === "/tools/jwt" ? activeClass : inactiveClass}`}>
                   <MdLock className="h-5 w-5" />
                   JWT Generator
                 </Link>
               </li>
               <li>
-                <Link href="/tools/saml" className={samlStyling}>
+                <Link href="/tools/dev/saml" className={samlStyling}>
                   <MdVerifiedUser className="h-5 w-5" />
                   SAML Utility
                 </Link>
               </li>
               <li>
-                <Link href="/tools/formatter" className={formatterStyling}>
+                <Link href="/tools/dev/formatter" className={formatterStyling}>
                   <MdCode className="h-5 w-5" />
                   XML and JSON Formatter
                 </Link>
               </li>
               <li>
-                <Link href="/tools/paytracker" className={payTrackerStyling}>
+                <Link href="/tools/dev/paytracker" className={payTrackerStyling}>
                   <MdPayment className="h-5 w-5" />
                   PayTracker
                 </Link>
@@ -98,43 +98,43 @@ export default function DevToolsHeader() {
         <nav className="md:hidden bg-gradient-to-r from-gray-800 to-gray-900">
           <ul className="flex flex-col gap-4 px-6 pb-4">
             <li>
-              <Link href="/tools/" className={toolsHomeStyling}>
+              <Link href="/tools/dev" className={toolsHomeStyling}>
                 <MdHome className="h-5 w-5" />
                 Dev Tools Home
               </Link>
             </li>
             <li>
-              <Link href="/tools/url" className={linkLabStyling}>
+              <Link href="/dev/tools/url" className={linkLabStyling}>
                 <MdLink className="h-5 w-5" />
                 Link Lab
               </Link>
             </li>
             <li>
-              <Link href="/tools/tasks" className={tasksStyling}>
+              <Link href="/dev/tools/tasks" className={tasksStyling}>
                 <MdChecklist className="h-5 w-5" />
                 Tasks
               </Link>
             </li>
             <li>
-              <Link href="/tools/jwt" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href="/dev/tools/jwt" className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
                 <MdLock className="h-5 w-5" />
                 JWT Generator
               </Link>
             </li>
             <li>
-              <Link href="/tools/saml" className={`${baseclassLinks} ${pathname === "/tools/saml" ? activeClass : inactiveClass}`}>
+              <Link href="/dev/tools/saml" className={`${baseclassLinks} ${pathname === "/tools/saml" ? activeClass : inactiveClass}`}>
                 <MdVerifiedUser className="h-5 w-5" />
                 SAML Utility
               </Link>
             </li>
             <li>
-              <Link href="/tools/formatter" className={`${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`}>
+              <Link href="/dev/tools/formatter" className={`${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`}>
                 <MdVerifiedUser className="h-5 w-5" />
                 Xml and JSON Formatter
               </Link>
             </li>
             <li>
-              <Link href="/tools/paytracker" className={payTrackerStyling}>
+              <Link href="/dev/tools/paytracker" className={payTrackerStyling}>
                 <MdPayment className="h-5 w-5" />
                 PayTracker
               </Link>

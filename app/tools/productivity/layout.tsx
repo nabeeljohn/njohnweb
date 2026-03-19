@@ -1,9 +1,13 @@
-import DevToolsHeader from "@/appcomponents/devtools/devtoolsheader";
+import ProductivityToolsHeader from "@/appcomponents/productivitytools/productivitytoolsheader"
 
-export default function ToolsLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+type children = {
+    children: React.ReactNode;
+};
+
+export default function ProductivityToolsLayout({children} : children) {
     return (
         <div className="flex flex-col">
-            <DevToolsHeader />
+            <ProductivityToolsHeader />
             <main className="flex-1">
                 <div className="bg-gray-700 text-gray-100 py-12">
                     <div className="max-w-7xl mx-auto px-6">
@@ -12,5 +16,5 @@ export default function ToolsLayout({ children, }: Readonly<{ children: React.Re
                 </div>
             </main>
         </div>
-    );
+    )
 }
