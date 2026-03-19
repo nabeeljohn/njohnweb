@@ -14,7 +14,7 @@ export default function AddPaymentModal() {
         setDateTime(now);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const paymentData = { dateTime, amount, details, bank };
         console.log("Payment submitted:", paymentData);
