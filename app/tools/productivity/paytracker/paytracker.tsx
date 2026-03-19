@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AddPaymentModal from "./modals/addpaymentmodal";
 
 // Dummy placeholder data with amounts
 const dummyPayments = [
@@ -35,12 +36,13 @@ export default function PayTrackerPlaceholder() {
                 {/* Header with title and Add button */}
                 <div className="flex items-center justify-between mb-4">
                     <h1 className="text-3xl font-bold text-gray-100">Payment Tracker (Placeholder)</h1>
-                    <button
+                    <AddPaymentModal />
+                    {/* <button
                         className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium shadow"
                         onClick={() => alert("Add Payment clicked!")}
                     >
                         Add Payment
-                    </button>
+                    </button> */}
                 </div>
 
                 {/* Warning / Info Banner */}
