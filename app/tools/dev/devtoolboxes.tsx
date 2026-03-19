@@ -24,20 +24,6 @@ export default function DevToolBoxes() {
                     </p>
                 </Link>
 
-                {/* Todo List */}
-                <Link
-                    href="/tools/dev/tasks"
-                    className={cardStyle}
-                >
-                    <h2 className="text-xl font-semibold text-blue-400 mb-2">
-                        Tasks
-                    </h2>
-                    <p className="text-gray-300 text-sm">
-                        Manage your tasks and action items.
-                    </p>
-                    <p className="text-gray-500 text-xs mt-1">Requires Login</p>
-                </Link>
-
                 {/* JWT Generator */}
                 <Link
                     href="/tools/dev/jwt"
@@ -77,20 +63,18 @@ export default function DevToolBoxes() {
                     </p>
                 </Link>
 
-                {/* Placeholder 4 */}
+                {/* Milo AI Agent */}
                 <Link
-                    href="/tools/dev/paytracker"
+                    href="/tools/dev/agent"
                     className={cardStyle}
                 >
                     <h2 className="text-xl font-semibold text-blue-400 mb-2">
-                        PayTracker
+                        Milo
                     </h2>
                     <p className="text-gray-300 text-sm">
-                        Track and manage payments.
+                        Your AI assistant for tasks, ideas, and productivity.
                     </p>
-                    <p className="text-gray-500 text-xs mt-1">Requires Login</p>
                 </Link>
-
             </div>
         </>
     )
