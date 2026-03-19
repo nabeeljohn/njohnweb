@@ -6,6 +6,7 @@ import MainFooter from "@/appcomponents/main/mainfooter";
 import MainHeader from "@/appcomponents/main/mainheader";
 import MainLayoutConfiguration from "@/appcomponents/main/mainlayoutconfiguration";
 import GoogleAnalytics from "@/appcomponents/analytics/googleanalytics";
+import AnalyticsTracker from "@/appcomponents/analytics/analyticstracker";
 
 // Fonts
 const geistSans = Geist({
@@ -36,6 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-700 text-gray-100 flex flex-col min-h-screen`}
       >
         <GoogleAnalytics />
+        <AnalyticsTracker />
         <MainHeader />
         <main className="flex-1">
           <MainLayoutConfiguration>
