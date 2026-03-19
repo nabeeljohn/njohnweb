@@ -32,8 +32,8 @@ export default function AddPaymentModal() {
             </button>
 
             {isOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-                    <div className="bg-gray-900 text-gray-100 p-6 rounded-lg w-full max-w-md relative">
+                <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 backdrop-blur-sm">
+                    <div className="bg-gray-800 text-gray-100 p-6 rounded-lg w-full max-w-md relative">
                         {/* Close button */}
                         <button
                             className="absolute top-3 right-3 text-gray-400 hover:text-gray-200"
@@ -51,7 +51,7 @@ export default function AddPaymentModal() {
                                 <div className="flex gap-2">
                                     <input
                                         type="datetime-local"
-                                        className="flex-1 bg-gray-800 text-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="flex-1 bg-gray-700 text-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         value={dateTime}
                                         onChange={(e) => setDateTime(e.target.value)}
                                     />
@@ -71,7 +71,7 @@ export default function AddPaymentModal() {
                                 <input
                                     type="number"
                                     step="0.01"
-                                    className="bg-gray-800 text-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="bg-gray-700 text-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={amount}
                                     onChange={(e) => setAmount(e.target.value)}
                                 />
@@ -81,7 +81,7 @@ export default function AddPaymentModal() {
                             <div className="flex flex-col">
                                 <label className="mb-1 text-gray-400">Transaction Details</label>
                                 <textarea
-                                    className="bg-gray-800 text-gray-100 p-2 rounded-md resize-none min-h-[60px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="bg-gray-700 text-gray-100 p-2 rounded-md resize-none min-h-[60px] focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={details}
                                     onChange={(e) => setDetails(e.target.value)}
                                 />
@@ -91,7 +91,7 @@ export default function AddPaymentModal() {
                             <div className="flex flex-col">
                                 <label className="mb-1 text-gray-400">Bank</label>
                                 <select
-                                    className="bg-gray-800 text-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="bg-gray-700 text-gray-100 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={bank}
                                     onChange={(e) => setBank(e.target.value)}
                                 >
