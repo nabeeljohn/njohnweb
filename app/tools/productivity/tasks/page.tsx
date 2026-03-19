@@ -1,7 +1,7 @@
 import TaskList from "./tasklist";
 import { getTasks } from "@/lib/tasks/db";
 import CreateTaskModal from "./modals/createtaskmodal";
-import DeleteAllButton from "./modals/deleteallbutton";
+import DeleteAllModal from "./modals/deleteallmodal";
 import { pageTitle } from "@/lib/metadata/metadata";
 import { handleCreateTask, handleDeleteTask, handleEditTask, handleDeleteAllTasks, handleMarkIsCompleted } from "@/lib/tasks/actions";
 
@@ -23,7 +23,7 @@ export default async function Tasks() {
                 <h1 className="text-3xl font-bold">Tasks</h1>
                 <div className="flex gap-3">
                     <CreateTaskModal action={handleCreateTask} />
-                    <DeleteAllButton action={handleDeleteAllTasks} />
+                    <DeleteAllModal action={handleDeleteAllTasks} />
                 </div>
             </div>
             <div className="mt-8 mb-8 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-4 text-yellow-200 text-sm">
