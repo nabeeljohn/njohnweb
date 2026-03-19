@@ -14,11 +14,12 @@ export default function DevToolsHeader() {
   const activeClass = "text-blue-200";
 
   // Styling
-  const toolsHomeStyling = `${baseclassLinks} ${pathname === "/tools/dev" ? activeClass : inactiveClass}`;
-  const linkLabStyling = `${baseclassLinks} ${pathname === "/tools/dev/url" ? activeClass : inactiveClass}`;
-  const samlStyling = `${baseclassLinks} ${pathname === "/tools/dev/saml" ? activeClass : inactiveClass}`;
-  const formatterStyling = `${baseclassLinks} ${pathname.includes("/tools/dev/formatter") ? activeClass : inactiveClass}`;
-  const agentTrackerStyling = `${baseclassLinks} ${pathname === "/tools/dev/agent" ? activeClass : inactiveClass}`;
+  const toolsHomeStyling = `${baseclassLinks} ${pathname === devToolsUrls.devToolsHome ? activeClass : inactiveClass}`;
+  const linkLabStyling = `${baseclassLinks} ${pathname === devToolsUrls.linkLab ? activeClass : inactiveClass}`;
+  const samlStyling = `${baseclassLinks} ${pathname === devToolsUrls.saml ? activeClass : inactiveClass}`;
+  const jwtToolsStyling = `${baseclassLinks} ${pathname === devToolsUrls.jwt ? activeClass : inactiveClass}`;
+  const formatterStyling = `${baseclassLinks} ${pathname.includes(devToolsUrls.formatter) ? activeClass : inactiveClass}`;
+  const agentTrackerStyling = `${baseclassLinks} ${pathname === devToolsUrls.agent ? activeClass : inactiveClass}`;
 
 
   return (
@@ -47,9 +48,9 @@ export default function DevToolsHeader() {
                 </Link>
               </li>
               <li>
-                <Link href={devToolsUrls.jwt} className={`${baseclassLinks} ${pathname === "/tools/jwt" ? activeClass : inactiveClass}`}>
+                <Link href={devToolsUrls.jwt} className={jwtToolsStyling}>
                   <MdLock className="h-5 w-5" />
-                  JWT Generator
+                  JWT Tools
                 </Link>
               </li>
               <li>
@@ -104,19 +105,19 @@ export default function DevToolsHeader() {
               </Link>
             </li>
             <li>
-              <Link href={devToolsUrls.jwt} className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+              <Link href={devToolsUrls.jwt} className={jwtToolsStyling}>
                 <MdLock className="h-5 w-5" />
-                JWT Generator
+                JWT Tools
               </Link>
             </li>
             <li>
-              <Link href={devToolsUrls.saml} className={`${baseclassLinks} ${pathname === "/tools/saml" ? activeClass : inactiveClass}`}>
+              <Link href={devToolsUrls.saml} className={samlStyling}>
                 <MdVerifiedUser className="h-5 w-5" />
                 SAML Utility
               </Link>
             </li>
             <li>
-              <Link href={devToolsUrls.saml} className={`${baseclassLinks} ${pathname.includes("/tools/formatter") ? activeClass : inactiveClass}`}>
+              <Link href={devToolsUrls.saml} className={formatterStyling}>
                 <MdVerifiedUser className="h-5 w-5" />
                 Xml and JSON Formatter
               </Link>
