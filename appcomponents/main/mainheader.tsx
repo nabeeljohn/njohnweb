@@ -28,7 +28,7 @@ export default function MainHeader() {
       : pathname === path || pathname.startsWith(path + "/");
 
   const homeStyles = `${linkBase} ${isActive("/") ? activeClass : inactiveClass}`;
-  const devtoolsStyles = `${linkBase} ${isActive("/tools/dev") ? activeClass : inactiveClass}`;
+  const devToolsStyles = `${linkBase} ${isActive("/tools/dev") ? activeClass : inactiveClass}`;
   const productivityToolsStyles = `${linkBase} ${isActive("/tools/productivity") ? activeClass : inactiveClass}`;
   const photographyStyles = `${linkBase} ${isActive("/photography") ? activeClass : inactiveClass}`;
   const resumeStyles = `${linkBase} ${isActive("/resume") ? activeClass : inactiveClass}`;
@@ -63,7 +63,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/tools/dev"
-                className={devtoolsStyles}
+                className={devToolsStyles}
               >
                 <MdBuild className="h-5 w-5" />
                 Developer Tools
@@ -128,7 +128,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/tools/dev"
-                className={toolsStyles}
+                className={devToolsStyles}
               >
                 <MdBuild className="h-5 w-5" />
                 Developer Tools
@@ -137,7 +137,7 @@ export default function MainHeader() {
             <li>
               <Link
                 href="/tools/productivity"
-                className={productivityStyles}
+                className={productivityToolsStyles}
               >
                 <MdApps className="h-5 w-5" />
                 Productivity Tools
