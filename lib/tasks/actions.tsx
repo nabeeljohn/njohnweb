@@ -1,8 +1,8 @@
-"use server"; // <-- only once at the top
+"use server";
 
 import { createTask, getTasks, deleteTask, deleteAllTasks, editTask, toggleIsCompleted } from "@/lib/tasks/db";
 import { revalidatePath } from "next/cache";
-const tasksPath = "tools/productivity/tasks";
+import { productivityToolsUrls } from "../urls/urls";
 
 // Create a new task
 export async function handleCreateTask(formData: FormData) {
@@ -10,21 +10,21 @@ export async function handleCreateTask(formData: FormData) {
   const description = formData.get("description") as string;
   console.log("Creating task:", { title, description });
   await createTask(title, description);
-  revalidatePath(tasksPath);
+  revalidatePath(productivityToolsUrls.tasks);
 }
 
 // Delete a single task
 export async function handleDeleteTask(taskid: string) {
   console.log("Deleting task:", taskid);
   await deleteTask(taskid);
-  revalidatePath(tasksPath);
+  revalidatePath(productivityToolsUrls.tasks);
 }
 
 // Edit a task
 export async function handleEditTask(taskid: string, title: string, description: string) {
   console.log("Editing task:", taskid);
   await editTask(taskid, title, description);
-  revalidatePath(tasksPath);
+  revalidatePath(productivityToolsUrls.tasks);
 }
 
 // Delete all tasks
@@ -32,14 +32,14 @@ export async function handleDeleteAllTasks() {
   console.log("Deleting all tasks");
   // await delay(5000);
   await deleteAllTasks();
-  revalidatePath(tasksPath);
+  revalidatePath(productivityToolsUrls.tasks);
 }
 
 // Mark a task as completed
 export async function handleMarkIsCompleted(taskid: string) {
   console.log("Marking task as completed:", taskid);
   await toggleIsCompleted(taskid);
-  revalidatePath(tasksPath);
+  revalidatePath(productivityToolsUrls.tasks);
 }
 
 // Delay function for simulation and testing only
