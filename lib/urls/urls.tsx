@@ -10,5 +10,7 @@ export const devToolsUrls = {
 
 // URLs for Productivity Tools
 export const productivityToolsUrls = {
-    tasks: "/tools/productivity/tasks"
+    productivityToolsHome: "/tools/productivity",
+    tasks: "/tools/productivity/tasks",
+    payTracker: "/tools/productivity/paytracker"
 };

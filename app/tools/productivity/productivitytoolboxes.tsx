@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { productivityToolsUrls } from "@/lib/urls/urls";
 
 
 export default function ProductivityToolBoxes() {
@@ -14,7 +15,7 @@ export default function ProductivityToolBoxes() {
 
                 {/* Tasks */}
                 <Link
-                    href="/tools/productivity/tasks"
+                    href={productivityToolsUrls.tasks}
                     className={cardStyle}
                 >
                     <h2 className="text-xl font-semibold text-blue-400 mb-2">
@@ -28,7 +29,7 @@ export default function ProductivityToolBoxes() {
 
                 {/* PayTracker */}
                 <Link
-                    href="/tools/productivity/paytracker"
+                    href={productivityToolsUrls.payTracker}
                     className={cardStyle}
                 >
                     <h2 className="text-xl font-semibold text-blue-400 mb-2">

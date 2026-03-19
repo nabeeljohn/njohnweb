@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { MdHome, MdChecklist, MdMenu, MdClose, MdPayment} from "react-icons/md";
 import { usePathname } from "next/navigation";
+import { productivityToolsUrls } from "@/lib/urls/urls";
 
 export default function ProductivityToolsHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,19 +33,19 @@ export default function ProductivityToolsHeader() {
           <nav className="hidden md:flex">
             <ul className="flex gap-6 items-center">
               <li>
-                <Link href="/tools/productivity/" className={toolsHomeStyling}>
+                <Link href={productivityToolsUrls.productivityToolsHome} className={toolsHomeStyling}>
                   <MdHome className="h-5 w-5" />
                   Productivity Tools Home
                 </Link>
               </li>
               <li>
-                <Link href="/tools/productivity/tasks" className={tasksStyling}>
+                <Link href={productivityToolsUrls.tasks} className={tasksStyling}>
                   <MdChecklist className="h-5 w-5" />
                   Tasks
                 </Link>
               </li>
               <li>
-                <Link href="/tools/productivity/paytracker" className={payTrackerStyling}>
+                <Link href={productivityToolsUrls.payTracker} className={payTrackerStyling}>
                   <MdPayment className="h-5 w-5" />
                   PayTracker
                 </Link>
@@ -71,19 +72,19 @@ export default function ProductivityToolsHeader() {
         <nav className="md:hidden bg-gradient-to-r from-gray-800 to-gray-900">
           <ul className="flex flex-col gap-4 px-6 pb-4">
             <li>
-              <Link href="/tools/productivity" className={toolsHomeStyling}>
+              <Link href={productivityToolsUrls.productivityToolsHome} className={toolsHomeStyling}>
                 <MdHome className="h-5 w-5" />
                 Productivity Tools Home
               </Link>
             </li>
             <li>
-              <Link href="/dev/productivity/tasks" className={tasksStyling}>
+              <Link href={productivityToolsUrls.tasks} className={tasksStyling}>
                 <MdChecklist className="h-5 w-5" />
                 Tasks
               </Link>
             </li>
             <li>
-              <Link href="/dev/productivity/paytracker" className={payTrackerStyling}>
+              <Link href={productivityToolsUrls.payTracker} className={payTrackerStyling}>
                 <MdPayment className="h-5 w-5" />
                 PayTracker
               </Link>
