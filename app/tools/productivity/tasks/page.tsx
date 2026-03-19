@@ -23,7 +23,7 @@ export default async function Tasks() {
                 <h1 className="text-3xl font-bold">Tasks</h1>
                 <div className="flex gap-3">
                     <CreateTaskModal action={handleCreateTask} />
-                    <DeleteAllModal action={handleDeleteAllTasks} />
+                    <DeleteAllModal action={handleDeleteAllTasks} tasks={res}/>
                 </div>
             </div>
             <div className="mt-8 mb-8 rounded-lg border border-yellow-500/40 bg-yellow-500/10 p-4 text-yellow-200 text-sm">

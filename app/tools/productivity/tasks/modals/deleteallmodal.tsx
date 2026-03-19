@@ -5,9 +5,10 @@ import { MdDeleteForever } from "react-icons/md"
 
 type DeleteAllModalProps = {
     action: () => Promise<void>; // the function to call when confirming
+    tasks?: any[];
 };
 
-export default function DeleteAllModal({ action }: DeleteAllModalProps) {
+export default function DeleteAllModal({ action, tasks = [] }: DeleteAllModalProps) {
     
     const [open, setOpen] = useState(false);
     const [isPending, startTransition] = useTransition();
@@ -24,7 +25,8 @@ export default function DeleteAllModal({ action }: DeleteAllModalProps) {
             {/* Open Button */}
             <button
                 onClick={() => setOpen(true)}
-                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm font-medium text-white transition"
+                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm font-medium text-white transition disabled:opacity-50"
+                disabled = {tasks.length === 0}
             >
                 Delete All Tasks
             </button>
