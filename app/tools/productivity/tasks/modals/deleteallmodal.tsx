@@ -33,7 +33,7 @@ export default function DeleteAllModal({ action, tasks = [] }: DeleteAllModalPro
 
             {/* Modal */}
             {open && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 backdrop-blur-sm">
                     <div className="bg-gray-800 text-gray-100 rounded-lg shadow-lg w-11/12 max-w-md p-6">
                         <div className="flex items-center gap-2 mb-4">
                             <MdDeleteForever className="h-6 w-6 text-red-500" />
