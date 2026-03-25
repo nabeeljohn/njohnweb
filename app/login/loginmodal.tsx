@@ -33,7 +33,7 @@ export default function AuthModal() {
     };
 
     return (
-        <div className="h-full flex items-center justify-center bg-gray-800 text-gray-100">
+        <div className="h-full flex bg-gray-800 text-gray-100">
             {/* Default View */}
             <div className="inline-block bg-gray-800 p-1 rounded-md">
                 <button

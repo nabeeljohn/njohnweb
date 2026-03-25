@@ -160,12 +160,7 @@ export default function MainHeader() {
 
             {/* Mobile Login */}
             <li>
-              <Link
-                href="/login"
-                className="px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-500 text-white transition"
-              >
-                Login
-              </Link>
+              <LoginModal />
             </li>
           </ul>
         </nav>
