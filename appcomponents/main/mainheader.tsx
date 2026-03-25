@@ -13,6 +13,7 @@ import {
   MdHome,
 } from "react-icons/md";
 import MainLogo from "./logo";
+import LoginModal from "@/app/login/loginmodal";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,14 +102,7 @@ export default function MainHeader() {
           </ul>
 
           {/* Auth button */}
-          <div className="ml-8">
-            <Link
-              href="/login"
-              className="px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-500 text-white transition"
-            >
-              Login
-            </Link>
-          </div>
+          <LoginModal />
         </nav>
       </div>
 
