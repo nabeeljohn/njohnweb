@@ -164,6 +164,12 @@ export default function AuthModal() {
                                 {isLogin ? "Sign up" : "Login"}
                             </button>
                         </p>
+
+                        {/* SSO Info Tip */}
+                        <div className="mt-4 p-3 bg-gray-700/80 rounded-md text-sm text-gray-300 border border-gray-600 text-center">
+                            Single Sign-On (SSO) via Okta and other major authentication providers
+                            will be implemented soon.
+                        </div>
                     </div>
                 </div>
             )}
