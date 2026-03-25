@@ -52,7 +52,7 @@ export default function AuthModal() {
                 >
                     <div
                         ref={modalRef}
-                        className="bg-gray-800/90 p-8 rounded-xl shadow-xl w-full max-w-md relative transform transition-all duration-300 scale-95 animate-modal-in"
+                        className="bg-gray-800 p-8 rounded-xl shadow-xl w-full max-w-md relative transform transition-all duration-300 scale-95 animate-modal-in"
                     >
                         {/* Close Button */}
                         <button
