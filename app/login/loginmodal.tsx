@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
+import { handleSignUpContact } from "@/lib/authentication/actions";
+import { initialize } from "next/dist/server/lib/render-server";
 
 export default function LoginModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +21,21 @@ export default function LoginModal() {
       document.removeEventListener("keydown", handleEsc);
     };
   }, [isOpen]);
+
+  type FormState = {
+    message: string;
+    errors?: {
+      email?: string;
+      password?: string;
+    };
+  };
+
+  const initialState: FormState = {
+    message: "",
+    errors: {}
+  };
+
+  const [signUpFormState, signUpFormAction] = useFormState(handleSignUpContact, initialState);
 
   return (
     <div className="h-full flex bg-gray-800 text-gray-100">
@@ -50,17 +68,15 @@ export default function LoginModal() {
             <div className="flex justify-center mb-6">
               <button
                 onClick={() => setIsLogin(true)}
-                className={`px-4 py-2 rounded-l-xl ${
-                  isLogin ? "bg-blue-600" : "bg-gray-700 hover:bg-gray-600"
-                }`}
+                className={`px-4 py-2 rounded-l-xl ${isLogin ? "bg-blue-600" : "bg-gray-700 hover:bg-gray-600"
+                  }`}
               >
                 Login
               </button>
               <button
                 onClick={() => setIsLogin(false)}
-                className={`px-4 py-2 rounded-r-xl ${
-                  !isLogin ? "bg-blue-600" : "bg-gray-700 hover:bg-gray-600"
-                }`}
+                className={`px-4 py-2 rounded-r-xl ${!isLogin ? "bg-blue-600" : "bg-gray-700 hover:bg-gray-600"
+                  }`}
               >
                 Sign Up
               </button>
@@ -70,7 +86,7 @@ export default function LoginModal() {
               {isLogin ? "Login" : "Sign Up"}
             </h2>
 
-            <form className="space-y-6">
+            <form className="space-y-6" action={signUpFormAction}>
               {!isLogin && (
                 <div className="flex gap-4">
                   <div className="w-1/2">
@@ -100,6 +116,7 @@ export default function LoginModal() {
                   type="email"
                   className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter your email"
+                  name="email"
                 />
               </div>
 
@@ -125,6 +142,22 @@ export default function LoginModal() {
                 </div>
               )}
 
+              {(signUpFormState.errors?.email || signUpFormState.errors?.password || signUpFormState.message) && (
+                <div className="mb-4">
+                  {/* Field-specific errors */}
+                  {signUpFormState.errors?.email && (
+                    <p className="text-red-400 text-sm">{signUpFormState.errors.email}</p>
+                  )}
+                  {signUpFormState.errors?.password && (
+                    <p className="text-red-400 text-sm">{signUpFormState.errors.password}</p>
+                  )}
+
+                  {/* Global message if no field errors */}
+                  {!signUpFormState.errors?.email && !signUpFormState.errors?.password && signUpFormState.message && (
+                    <p className="text-green-400 text-sm">{signUpFormState.message}</p>
+                  )}
+                </div>
+              )}
               <button
                 type="submit"
                 className="w-full py-2 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold transition"
