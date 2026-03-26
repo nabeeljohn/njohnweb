@@ -1,5 +1,7 @@
 'use server';
 
+import argon2 from "argon2";
+
 type FormState = {
   message: string;
   errors?: {
@@ -28,6 +30,10 @@ export async function handleSignUpContact(prevState: FormState, formData: FormDa
     };
   }
 
+  const hashed = await argon2.hash("user-password");
+
+// To verify
+// const isValid = await argon2.verify(hashed, "user-password");
   // do your DB / auth logic here
 
   return {
