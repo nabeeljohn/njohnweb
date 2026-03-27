@@ -1,6 +1,7 @@
 'use server';
 
 import argon2 from "argon2";
+import { signUpContact } from "./db";
 
 type FormState = {
   message: string;
@@ -36,6 +37,10 @@ export async function handleSignUpContact(prevState: FormState, formData: FormDa
   const isValid = await argon2.verify(hashedPassword, password);
   console.log(isValid);
   // do your DB / auth logic here
+
+  if (isValid) {
+    await signUpContact(firstName, lastName, email, hashedPassword)
+  }
 
   await delay(1500);
 
