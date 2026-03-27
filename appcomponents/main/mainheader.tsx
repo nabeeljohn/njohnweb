@@ -13,7 +13,6 @@ import {
   MdHome,
 } from "react-icons/md";
 import MainLogo from "./logo";
-import LoginModal from "@/app/authentication/loginmodal";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,10 +98,15 @@ export default function MainHeader() {
                 Resume
               </a>
             </li>
+            <li>
+              <Link
+                href="/authentication/signin"
+                className="inline-block bg-gray-700 hover:bg-gray-600 text-gray-100 font-medium px-4 py-2 rounded-md transition-colors shadow-sm hover:shadow-md"
+              >
+                Sign in
+              </Link>
+            </li>
           </ul>
-
-          {/* Auth button */}
-          <LoginModal />
         </nav>
       </div>
 
@@ -157,10 +161,13 @@ export default function MainHeader() {
                 Resume
               </a>
             </li>
-
-            {/* Mobile Login */}
             <li>
-              <LoginModal />
+              <Link
+                href="/authentication/signin"
+                className="inline-block bg-gray-700 hover:bg-gray-600 text-gray-100 font-medium px-4 py-2 rounded-md transition-colors shadow-sm hover:shadow-md"
+              >
+                Sign in
+              </Link>
             </li>
           </ul>
         </nav>

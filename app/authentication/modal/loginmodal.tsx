@@ -74,11 +74,11 @@ export default function LoginModal() {
 
       // Call your action
       const result = await handleSignUpContact(
-        { message: "", errors: {} },
+        { message:{success:'', error:''}},
         formData
       );
 
-      if (result?.message) {
+      if (result?.message?.success) {
         setForm({
           firstName: "",
           lastName: "",
@@ -86,7 +86,7 @@ export default function LoginModal() {
           password: "",
           confirmPassword: "",
         });
-        setSuccessMessage(result.message);
+        setSuccessMessage(result.message.success);
       }
     } catch (err) {
       console.error(err);
