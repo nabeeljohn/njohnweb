@@ -73,7 +73,10 @@ export default function LoginModal() {
       });
 
       // Call your action
-      const result = await handleSignUpContact({}, formData);
+      const result = await handleSignUpContact(
+        { message: "", errors: {} },
+        formData
+      );
 
       if (result?.message) {
         setForm({

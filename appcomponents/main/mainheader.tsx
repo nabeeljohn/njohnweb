@@ -13,7 +13,7 @@ import {
   MdHome,
 } from "react-icons/md";
 import MainLogo from "./logo";
-import LoginModal from "@/app/login/loginmodal";
+import LoginModal from "@/app/authentication/loginmodal";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
