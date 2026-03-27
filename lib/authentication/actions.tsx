@@ -12,8 +12,7 @@ type FormState = {
   };
 };
 
-export async function handleSignUpContact(prevState: FormState, formData: FormData): Promise<FormState>
-{
+export async function handleSignUpContact(prevState: FormState, formData: FormData): Promise<FormState> {
   const firstName = formData.get("firstName") as string;
   const lastName = formData.get("lastName") as string;
   const email = formData.get("email") as string;
@@ -30,14 +29,23 @@ export async function handleSignUpContact(prevState: FormState, formData: FormDa
     };
   }
 
-  const hashed = await argon2.hash("user-password");
+  const hashedPassword = await argon2.hash(password);
+  console.log(hashedPassword);
 
-// To verify
-// const isValid = await argon2.verify(hashed, "user-password");
+  // To verify
+  const isValid = await argon2.verify(hashedPassword, password);
+  console.log(isValid);
   // do your DB / auth logic here
+
+  await delay(1500);
 
   return {
     message: "Success!",
     errors: {},
   };
+}
+
+
+function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
