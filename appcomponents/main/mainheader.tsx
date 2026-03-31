@@ -13,7 +13,6 @@ import {
   MdHome,
 } from "react-icons/md";
 import MainLogo from "./logo";
-import UserStatusBar from "./userstatus/userstatusbar";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,9 +98,6 @@ export default function MainHeader() {
                 Resume
               </a>
             </li>
-            <li>
-              Login
-            </li>
           </ul>
         </nav>
       </div>
@@ -156,14 +152,6 @@ export default function MainHeader() {
                 <MdDescription className="h-5 w-5" />
                 Resume
               </a>
-            </li>
-            <li>
-              <Link
-                href="/authentication/signin"
-                className="inline-block bg-gray-700 hover:bg-gray-600 text-gray-100 font-medium px-4 py-2 rounded-md transition-colors shadow-sm hover:shadow-md"
-              >
-                Sign in
-              </Link>
             </li>
           </ul>
         </nav>
