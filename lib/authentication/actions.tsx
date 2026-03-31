@@ -2,7 +2,7 @@
 
 import argon2 from "argon2";
 import crypto from "crypto";
-import { redis } from "./redis";
+import { redis, User } from "./redis";
 import { cookies } from "next/headers";
 import { signUpContact, getContactByEmail } from "./db";
 import { redirect } from "next/navigation";
@@ -98,6 +98,17 @@ export async function handleLoginContact(prevState: FormState, formData: FormDat
   }
 
   return newstate;
+}
+
+export async function handleGetCurrentUser() {
+  const cookieStore = await cookies();
+  const sessionId = cookieStore.get(SESSION_COOKIE_NAME)?.value;
+  if (!sessionId) return null;
+
+  const sessionData = await redis.get(`session:${sessionId}`);
+  if (!sessionData) return null;
+
+  return sessionData as User;
 }
 
 export async function handleLogoutContact() {

@@ -1,15 +1,15 @@
 "use server";
 
-import { createTask, getTasks, deleteTask, deleteAllTasks, editTask, toggleIsCompleted } from "@/lib/tasks/db";
+import { createTaskByMemberId, getTasksByMemberId, deleteTask, deleteAllTasks, editTask, toggleIsCompleted } from "@/lib/tasks/db";
 import { revalidatePath } from "next/cache";
 import { productivityToolsUrls } from "../urls/urls";
 
 // Create a new task
-export async function handleCreateTask(formData: FormData) {
+export async function handleCreateTaskByMemberId(memberId: string, formData: FormData) {
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   console.log("Creating task:", { title, description });
-  await createTask(title, description);
+  await createTaskByMemberId(memberId, title, description);
   revalidatePath(productivityToolsUrls.tasks);
 }
 
