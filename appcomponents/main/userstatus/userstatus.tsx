@@ -1,8 +1,7 @@
-// Server component: fetch user and render status directly
 import { cookies } from 'next/headers';
 import { getCurrentUser, User } from '@/lib/authentication/redis';
-import { handleLogoutContact } from '@/lib/authentication/actions';
 import Link from 'next/link';
+import UserMenu from './usermenu'; //
 
 export default async function UserStatus() {
   const cookieStore = await cookies();
@@ -11,39 +10,10 @@ export default async function UserStatus() {
   const user: User | null = await getCurrentUser(sessionId);
 
   return (
-    <div className="bg-gray-900/80 backdrop-blur">
-      <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between text-sm text-gray-300">
-
-        {/* Left side */}
-        <div className="flex items-center gap-3">
-          {user ? (
-            <>
-              <span>
-                Hi,{" "}
-                <span className="font-medium text-white">
-                  {user.firstName} {user.lastName}
-                </span>
-              </span>
-
-              <span className="bg-gray-800 text-gray-400 px-2 py-0.5 rounded-md text-xs">
-                ID: {user.memberId}
-              </span>
-            </>
-          ) : (
-            <span className="text-gray-400">Welcome, guest</span>
-          )}
-        </div>
-
-        {/* Right side */}
+    <div className="bg-gray-900/80 backdrop-blur shadow-md shadow-gray-500/20">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex justify-end items-center">
         {user ? (
-          <form action={handleLogoutContact}>
-            <button
-              type="submit"
-              className="text-gray-400 hover:text-red-400 transition-colors"
-            >
-              Logout
-            </button>
-          </form>
+          <UserMenu user={user} />
         ) : (
           <Link
             href="/authentication/signin"
