@@ -17,7 +17,7 @@ export default async function UserStatus() {
         ) : (
           <Link
             href="/authentication/signin"
-            className="text-gray-400 hover:text-blue-400 transition-colors"
+            className="px-3 py-1 rounded-md border border-gray-600 text-gray-300 hover:bg-gray-700 hover:border-gray-500 transition-colors text-sm font-medium"
           >
             Sign In
           </Link>
