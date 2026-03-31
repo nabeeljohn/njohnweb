@@ -52,12 +52,12 @@ export async function editTask(taskid: string, title: string, description: strin
   await client.end();
 }
 
-export async function deleteAllTasks() {
+export async function deleteAllTasks(memberId: string) {
   const client = new Client({
     connectionString: process.env.NJOHNWEB_DATABASE_URL,
   });
   await client.connect();
-  await client.query("DELETE FROM tasks"); // deletes all rows
+  await client.query("DELETE FROM tasks WHERE contactid = $1", [memberId]); // deletes all rows for the specified member
   await client.end();
 }
 

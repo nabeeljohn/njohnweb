@@ -28,10 +28,10 @@ export async function handleEditTaskByTaskId(taskid: string, title: string, desc
 }
 
 // Delete all tasks
-export async function handleDeleteAllTasks() {
-  console.log("Deleting all tasks");
+export async function handleDeleteAllTasksByMemberId(memberId: string) {
+  console.log("Deleting all tasks for member:", memberId);
   // await delay(5000);
-  await deleteAllTasks();
+  await deleteAllTasks(memberId);
   revalidatePath(productivityToolsUrls.tasks);
 }
 
