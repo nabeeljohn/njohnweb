@@ -7,6 +7,8 @@ import MainHeader from "@/appcomponents/main/mainheader";
 import MainLayoutConfiguration from "@/appcomponents/main/mainlayoutconfiguration";
 import GoogleAnalytics from "@/appcomponents/analytics/googleanalytics";
 import AnalyticsTracker from "@/appcomponents/analytics/analyticstracker";
+import UserStatus from "@/appcomponents/main/userstatus";
+import UserStatusBar from "@/appcomponents/main/userstatusbar";
 
 // Fonts
 const geistSans = Geist({
@@ -39,6 +41,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <AnalyticsTracker />
         <MainHeader />
+        {/* <UserStatusBar /> */}
         <main className="flex-1">
           <MainLayoutConfiguration>
             {children}

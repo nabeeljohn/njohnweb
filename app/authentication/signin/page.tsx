@@ -1,16 +1,31 @@
 'use client';
 
 import { useState } from "react";
+import { handleLoginContact } from "@/lib/authentication/actions";
 import Link from "next/link";
 
 export default function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log({ email, password });
-        // TODO: hook into auth logic
+        // Convert form data to FormData object
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("password", password);
+        // TODO: Call the login action with the form data
+        const result = await handleLoginContact({ message:{success:'', error:''} }, formData);
+        if (result?.message?.success) {
+            setSuccessMessage(result.message.success);
+            setErrorMessage("");
+        }
+        else if (result?.message?.error) {
+            setErrorMessage(result.message.error);
+            setSuccessMessage("");
+        }
     };
 
     return (
@@ -22,6 +37,19 @@ export default function SignIn() {
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
+
+                    <div>
+                        {successMessage && (
+                            <div className="bg-green-900/50 text-green-400 p-3 rounded-md">
+                                {successMessage}
+                            </div>
+                        )}
+                        {errorMessage && (
+                            <div className="bg-red-900/50 text-red-400 p-3 rounded-md">
+                                {errorMessage}
+                            </div>
+                        )}
+                    </div>
 
                     {/* Email */}
                     <div>

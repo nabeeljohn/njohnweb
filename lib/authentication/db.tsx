@@ -19,3 +19,13 @@ export async function signUpContact(firstName: string, lastName: string, email: 
     );
     await client.end();
 }
+
+export async function getContactByEmail(email: string) {
+    const client = new Client({
+        connectionString: process.env.NJOHNWEB_DATABASE_URL,
+    });
+    await client.connect(); 
+    const result = await client.query("SELECT * FROM contact WHERE email_address = $1", [email]);
+    await client.end();
+    return result.rows[0];
+}
