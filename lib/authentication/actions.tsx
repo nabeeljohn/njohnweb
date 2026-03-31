@@ -5,6 +5,8 @@ import crypto from "crypto";
 import { redis } from "./redis";
 import { cookies } from "next/headers";
 import { signUpContact, getContactByEmail } from "./db";
+import { redirect } from "next/navigation";
+import { SESSION_COOKIE_NAME } from "../globals/constants";
 
 type FormState = {
   message: {
@@ -79,7 +81,7 @@ export async function handleLoginContact(prevState: FormState, formData: FormDat
     // ✅ Use cookies() synchronously (no await)
     const cookieStore = await cookies();
     cookieStore.set({
-      name: 'NJohnWebLogin',
+      name: SESSION_COOKIE_NAME,
       value: sessionId,
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
@@ -97,6 +99,20 @@ export async function handleLoginContact(prevState: FormState, formData: FormDat
 
   return newstate;
 }
+
+export async function handleLogoutContact() {
+  const cookieStore = await cookies();
+  const sessionId = cookieStore.get(SESSION_COOKIE_NAME)?.value;
+  cookieStore.delete(SESSION_COOKIE_NAME);
+
+  //clear session from redis
+  if (sessionId) {
+    await redis.del(`session:${sessionId}`);
+  }
+
+  redirect('/'); // Redirect to homepage after logout
+}
+
 
 function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
