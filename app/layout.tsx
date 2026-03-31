@@ -40,8 +40,8 @@ export default function RootLayout({
       >
         <GoogleAnalytics />
         <AnalyticsTracker />
+        <UserStatusBar />
         <MainHeader />
-        {/* <UserStatusBar /> */}
         <main className="flex-1">
           <MainLayoutConfiguration>
             {children}
