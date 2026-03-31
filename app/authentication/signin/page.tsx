@@ -1,7 +1,14 @@
 ﻿import { Suspense } from "react";
 import SignInClient from "./signinclient";
 import { handleGetCurrentUser } from "@/lib/authentication/actions";
+import { pageTitle } from "@/lib/metadata/metadata";
 import Link from "next/link";
+
+export const metadata = {
+    title: pageTitle("Sign In"),
+    description: "Sign in to your NJohn Web account to access your personalized dashboard, manage your tools, and stay productive. Enter your credentials to get started.",
+};
+
 
 export default async function Page() {
   const contact = await handleGetCurrentUser();

@@ -24,8 +24,8 @@ export default function SignInClient() {
     const result = await handleLoginContact({ message: { success: "", error: "" } }, formData);
 
     if (result?.message?.success) {
-      setSuccessMessage(result.message.success);
-      setErrorMessage("");
+      // setSuccessMessage(result.message.success);
+      // setErrorMessage("");
       router.push(redirectUrl);
     } else if (result?.message?.error) {
       setErrorMessage(result.message.error);
