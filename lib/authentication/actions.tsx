@@ -23,16 +23,35 @@ export async function handleSignUpContact(prevState: FormState, formData: FormDa
 
   const newstate: FormState = { message: { success: '', error: '' } };
 
+  if (!email || !password || !firstName || !lastName) {
+    newstate.message.error = 'All fields are required for sign-up.';
+    return newstate;
+  }
+
   const hashedPassword = await argon2.hash(password);
-
   const isValid = await argon2.verify(hashedPassword, password);
-  console.log(isValid);
 
-  if (isValid) {
+  if (!isValid) {
+    newstate.message.error = 'Invalid Password. Please enter a valid password.';
+    return newstate;
+  }
+
+  try {
+    await signUpContact(firstName, lastName, email, hashedPassword);
     newstate.message.success = 'Sign-up successful! You can now log in.';
-    await signUpContact(firstName, lastName, email, hashedPassword)
-  } else {
-    newstate.message.error = 'An error has occurred!';
+  } catch (error: any) {
+    console.error("Error signing up contact:", error);
+
+    if (
+      error?.code === '23505' &&
+      (error?.constraint?.includes('email') || error?.detail?.includes('email_address') || error?.message?.includes('email_address'))
+    ) {
+      newstate.message.error = 'An account with that email already exists.';
+    } else {
+      newstate.message.error = 'An error has occurred during sign-up. Please try again.';
+    }
+
+    return newstate;
   }
 
   await delay(1500);

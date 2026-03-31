@@ -36,6 +36,8 @@ export default function SignUp() {
             return;
 
         setSubmitting(true);
+        setErrorMessage('');
+        setSuccessMessage('');
 
         // Convert form object to FormData
         const formData = new FormData();
@@ -43,26 +45,28 @@ export default function SignUp() {
             if (value !== undefined) formData.append(key, value as string);
         });
 
-        const result = await handleSignUpContact({ message:{success:'', error:''} }, formData);
+        try {
+            const result = await handleSignUpContact({ message:{success:'', error:''} }, formData);
 
-        if (result?.message?.success)
-        {
-            setForm({
-                firstName:'',
-                lastName:'',
-                email:'',
-                password:'',
-                confirmPassword:''
-            });
+            if (result?.message?.success) {
+                setForm({
+                    firstName:'',
+                    lastName:'',
+                    email:'',
+                    password:'',
+                    confirmPassword:''
+                });
 
-            setSuccessMessage(result.message.success);
+                setSuccessMessage(result.message.success);
+            } else if (result?.message?.error) {
+                setErrorMessage(result.message.error);
+            }
+        } catch (error) {
+            console.error('Sign-up failed:', error);
+            setErrorMessage('Unable to complete sign-up. Please try again.');
+        } finally {
+            setSubmitting(false);
         }
-        else if (result?.message?.error)
-        {
-            setErrorMessage(result.message.error)
-        }
-
-        setSubmitting(false);
     };
 
     return (
