@@ -13,7 +13,7 @@ import {
   MdHome,
 } from "react-icons/md";
 import MainLogo from "./logo";
-import UserStatusBar from "./userstatusbar";
+import UserStatusBar from "./userstatus/userstatusbar";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);

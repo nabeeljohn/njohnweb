@@ -7,8 +7,8 @@ import MainHeader from "@/appcomponents/main/mainheader";
 import MainLayoutConfiguration from "@/appcomponents/main/mainlayoutconfiguration";
 import GoogleAnalytics from "@/appcomponents/analytics/googleanalytics";
 import AnalyticsTracker from "@/appcomponents/analytics/analyticstracker";
-import UserStatus from "@/appcomponents/main/userstatus";
-import UserStatusBar from "@/appcomponents/main/userstatusbar";
+import UserStatus from "@/appcomponents/main/userstatus/userstatus";
+import UserStatusBar from "@/appcomponents/main/userstatus/userstatusbar";
 
 // Fonts
 const geistSans = Geist({
