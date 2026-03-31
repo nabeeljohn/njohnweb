@@ -21,7 +21,7 @@ export default async function UserStatus() {
   }
 
   return (
-<div className="bg-gray-900/80 backdrop-blur border-b border-gray-800">
+<div className="bg-gray-900/80 backdrop-blur">
   <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between text-sm text-gray-300">
     
     {/* Left side */}
