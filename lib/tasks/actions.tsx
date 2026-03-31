@@ -14,14 +14,14 @@ export async function handleCreateTaskByMemberId(memberId: string, formData: For
 }
 
 // Delete a single task
-export async function handleDeleteTask(taskid: string) {
+export async function handleDeleteTaskByTaskId(taskid: string) {
   console.log("Deleting task:", taskid);
   await deleteTask(taskid);
   revalidatePath(productivityToolsUrls.tasks);
 }
 
 // Edit a task
-export async function handleEditTask(taskid: string, title: string, description: string) {
+export async function handleEditTaskByTaskId(taskid: string, title: string, description: string) {
   console.log("Editing task:", taskid);
   await editTask(taskid, title, description);
   revalidatePath(productivityToolsUrls.tasks);
