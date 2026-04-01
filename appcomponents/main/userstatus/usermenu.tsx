@@ -39,8 +39,8 @@ export default function UserMenu({ user }: any) {
                 {/* Chevron */}
                 <MdKeyboardArrowDown
                     className={`w-5 h-5 transition-all duration-200 ${open
-                            ? "rotate-180 text-gray-200"
-                            : "text-gray-400 group-hover:text-gray-200"
+                        ? "rotate-180 text-gray-200"
+                        : "text-gray-400 group-hover:text-gray-200"
                         }`}
                 />
             </button>
@@ -50,26 +50,26 @@ export default function UserMenu({ user }: any) {
                 <div className="absolute right-0 mt-2 w-72 bg-gray-900 border border-gray-800 rounded-xl shadow-xl p-4 text-sm animate-in fade-in zoom-in-95">
 
                     {/* User Info */}
-<div className="mb-3">
-  {/* Name */}
-  <div className="text-white font-medium text-lg px-2">
-    {user.firstName} {user.lastName}
-  </div>
+                    <div className="mb-3">
+                        {/* Name */}
+                        <div className="text-white font-medium text-lg px-2">
+                            {user.firstName} {user.lastName}
+                        </div>
 
-  {/* Email badge on its own line, right-aligned */}
-  <div className="mt-1 flex justify-end">
-    <span className="text-gray-400 text-sm bg-gray-700/30 px-2 py-1 rounded-md truncate">
-      {user.email_address}
-    </span>
-  </div>
+                        {/* Email badge on its own line, right-aligned */}
+                        <div className="mt-1 flex justify-end">
+                            <span className="text-gray-400 text-sm bg-gray-700/30 px-2 py-1 rounded-md truncate">
+                                {user.email_address}
+                            </span>
+                        </div>
 
-  {/* ID badge on its own line, right-aligned */}
-  <div className="mt-1 flex justify-end">
-    <span className="text-gray-400 text-xs bg-gray-700/20 px-2 py-1 rounded-md font-mono">
-      ID: {user.memberId}
-    </span>
-  </div>
-</div>
+                        {/* ID badge on its own line, right-aligned */}
+                        <div className="mt-1 flex justify-end">
+                            <span className="text-gray-400 text-xs bg-gray-700/20 px-2 py-1 rounded-md font-mono">
+                                ID: {user.memberId}
+                            </span>
+                        </div>
+                    </div>
 
                     {/* Divider */}
                     <div className="border-t border-gray-800 my-2" />
