@@ -91,6 +91,7 @@ export async function handleLoginContact(prevState: FormState, formData: FormDat
         memberId: contact.memberid,
         firstName: contact.first_name,
         lastName: contact.last_name,
+        email_address: contact.email_address,
       }),
       {
         ex: 60 * 60 * 24 * 7, // 7 days
