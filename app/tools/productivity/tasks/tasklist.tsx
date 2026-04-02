@@ -11,15 +11,17 @@ export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction,
 
   // Sort tasks: incomplete first, then completed; within each group by createdon
   const sortedTasks = [...tasks].sort((a, b) => {
-    // Move completed tasks to the end
-    if (a.is_completed !== b.is_completed) {
-      return a.is_completed ? 1 : -1;
-    }
+    // // Move completed tasks to the end
+    // if (a.is_completed !== b.is_completed) {
+    //   return a.is_completed ? 1 : -1;
+    // }
     // Sort by createdon date (newest first)
     const dateA = new Date(a.createdon).getTime();
     const dateB = new Date(b.createdon).getTime();
-    return dateB - dateA; // swap for oldest first: dateA - dateB
-  });
+    return dateA - dateB; // swap for newest first: dateB - dateA
+  }).filter(task => !task.is_completed); // only show incomplete tasks in the main list
+
+  const completedTasks = [...tasks].filter(task => task.is_completed);
 
   const completedCount = sortedTasks.filter(task => task.is_completed).length;
   const pendingCount = tasks.length - completedCount;
@@ -45,7 +47,7 @@ export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction,
 
       {/* Show message if no tasks */}
       {tasks.length === 0 ? (
-        <p className="text-gray-400">No tasks available</p>
+        <p className="text-gray-400">No open tasks</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {sortedTasks.map((task) => (
@@ -57,6 +59,25 @@ export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction,
               isCompletedTaskAction={isCompletedTaskAction}
             />
           ))}
+        </div>
+      )}
+
+      {completedTasks.length > 0 && (
+        <div className="mt-6">
+          <h3 className="text-gray-400 uppercase tracking-wide text-xs mb-3">
+            Completed Tasks
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {completedTasks.map((task) => (
+              <Task
+                key={task.taskid}
+                task={task}
+                deleteTaskAction={deleteTaskAction}
+                editTaskAction={editTaskAction}
+                isCompletedTaskAction={isCompletedTaskAction}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

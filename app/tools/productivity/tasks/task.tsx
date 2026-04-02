@@ -29,8 +29,8 @@ export default function Task({ task, deleteTaskAction, editTaskAction, isComplet
       >
         {/* Task Content */}
         <div className="pb-4">
-          <h2 className="font-semibold text-lg mb-2 truncate">{task.title}</h2>
-          <p className="text-gray-300 mb-2 line-clamp-2">{task.description}</p>
+          <h2 className={`font-semibold text-lg mb-2 truncate ${isCompleted ? "text-gray-500" : "text-gray-100"}`}>{task.title}</h2>
+          <p className={`mb-2 line-clamp-2 ${isCompleted ? "text-gray-500" : "text-gray-300"}`}>{task.description}</p>
         </div>
 
         {/* Bottom Section: Created On + Buttons */}
