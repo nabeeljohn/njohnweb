@@ -13,7 +13,7 @@ export async function getTasksByMemberId(memberId: string) {
     });
     await client.connect();
     const res = await client.query(
-        "SELECT contactid, taskid, title, description, createdon, is_completed FROM tasks WHERE contactid = $1",
+        "SELECT contactid, taskid, title, description, createdon, completed_on, is_completed FROM tasks WHERE contactid = $1",
         [memberId]
     );
     await client.end();
@@ -63,7 +63,7 @@ export async function deleteAllTasks(memberId: string) {
 
 export async function toggleIsCompleted(taskId: string) {
   await pool.query(
-    "UPDATE tasks SET is_completed = NOT is_completed WHERE taskid = $1",
+    "UPDATE tasks SET is_completed = NOT is_completed, completed_on = CASE WHEN is_completed THEN NULL ELSE NOW() END WHERE taskid = $1",
     [taskId]
   );
 }

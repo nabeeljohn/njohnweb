@@ -38,47 +38,72 @@ export default function Task({ task, deleteTaskAction, editTaskAction, isComplet
           className="flex flex-col w-full rounded-md overflow-hidden"
           onClick={(e) => e.stopPropagation()} // prevent opening modal when clicking buttons
         >
-          {/* Created On / Completed On Info Bar */}
-          <div className="bg-gray-700/60 text-gray-400 text-xs flex flex-col sm:flex-row justify-between px-2 py-2">
-            <span>
-              Created on:{" "}
-              {typeof task.createdon === "string"
-                ? task.createdon
-                : new Date(task.createdon).toLocaleDateString()}
-            </span>
+          {/* Open / Done Info Bar */}
+          <div className={`text-xs flex flex-col sm:flex-row justify-between px-3 py-2 rounded-t-md bg-gray-700/50 ${isCompleted ? "bg-gray-800/50" : "bg-gray-700/50"}`}>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] text-gray-400 uppercase tracking-wide">
+                Open
+              </span>
+              <span className="text-gray-100">
+                {typeof task.createdon === "string"
+                  ? task.createdon
+                  : new Date(task.createdon).toLocaleString(undefined, {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                    hour: "numeric",
+                    minute: "2-digit"
+                  })}
+              </span>
+            </div>
 
-            {task.is_completed && (<span>
-              Completed on: 03/18/2026
-            </span>)}
+            {task.is_completed && (
+              <div className="flex items-center gap-2 mt-1 sm:mt-0">
+                <span className="text-[10px] text-gray-400 uppercase tracking-wide">
+                  Done
+                </span>
+                <span className="text-gray-100">
+                  {typeof task.completed_on === "string"
+                    ? task.completed_on
+                    : new Date(task.completed_on).toLocaleString(undefined, {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                      hour: "numeric",
+                      minute: "2-digit"
+                    })}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Buttons */}
-          <div className="flex justify-between items-center bg-gray-700 p-2">
+          <div className={`flex items-center justify-between px-3 py-2 rounded-b-md ${isCompleted ? "bg-gray-800/50" : "bg-gray-700/50"}`}>
             <div className="flex space-x-4">
               <button
-                className="text-blue-400 hover:text-blue-500 text-sm"
+                className="text-gray-300 hover:text-white hover:bg-gray-600/40 px-2.5 py-1 rounded-md text-xs transition active:scale-95 bg-gray-700/50"
                 onClick={() => setIsEditModalOpen(true)}
               >
                 Edit
               </button>
 
               <button
-                className="text-blue-400 hover:text-blue-500 text-sm"
+                className="text-gray-300 hover:text-white hover:bg-gray-600/40 px-2.5 py-1 rounded-md text-xs transition active:scale-95 bg-gray-700/50"
                 onClick={() =>
                   startCompleteTransition(() => isCompletedTaskAction(task.taskid))
                 }
               >
-                {isCompleted ? "Mark Pending" : "Mark Completed"}
+                {isCompleted ? "Undo" : "Done"}
               </button>
 
               <button
-                className="text-blue-400 hover:text-blue-500 text-sm disabled:opacity-50"
+                className="text-gray-300 hover:text-red-300 hover:bg-red-500/10 px-2.5 py-1 rounded-md text-xs transition disabled:opacity-40 active:scale-95 bg-gray-700/50"
                 disabled={isDeleting}
                 onClick={() =>
                   startDeleteTransition(() => deleteTaskAction(task.taskid))
                 }
               >
-                {isDeleting ? "Deleting..." : "Delete"}
+                {isDeleting ? "..." : "Delete"}
               </button>
             </div>
 
@@ -89,7 +114,6 @@ export default function Task({ task, deleteTaskAction, editTaskAction, isComplet
             )}
           </div>
         </div>
-
       </div>
 
       {/* Edit Modal */}

@@ -34,7 +34,7 @@ export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction,
           </span>
           <span className="w-1 h-1 bg-gray-500 rounded-full" />
           <span>
-            <span className="text-yellow-400 font-medium">{pendingCount}</span> Pending
+            <span className="text-yellow-400 font-medium">{pendingCount}</span> Open
           </span>
           <span className="w-1 h-1 bg-gray-500 rounded-full" />
           <span>
