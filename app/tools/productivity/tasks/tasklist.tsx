@@ -23,8 +23,8 @@ export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction,
 
   const completedTasks = [...tasks].filter(task => task.is_completed);
 
-  const completedCount = sortedTasks.filter(task => task.is_completed).length;
-  const pendingCount = tasks.length - completedCount;
+  const completedCount = completedTasks.length;
+  const openCount = tasks.length - completedCount;
 
   return (
     <div className="w-full h-full p-0">
@@ -36,7 +36,7 @@ export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction,
           </span>
           <span className="w-1 h-1 bg-gray-500 rounded-full" />
           <span>
-            <span className="text-yellow-400 font-medium">{pendingCount}</span> Open
+            <span className="text-yellow-400 font-medium">{openCount}</span> Open
           </span>
           <span className="w-1 h-1 bg-gray-500 rounded-full" />
           <span>
@@ -49,16 +49,23 @@ export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction,
       {tasks.length === 0 ? (
         <p className="text-gray-400">No open tasks</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {sortedTasks.map((task) => (
-            <Task
-              key={task.taskid}
-              task={task}
-              deleteTaskAction={deleteTaskAction}
-              editTaskAction={editTaskAction}
-              isCompletedTaskAction={isCompletedTaskAction}
-            />
-          ))}
+        <div>
+          {sortedTasks.length > 0 && (
+            <h3 className="text-gray-400 uppercase tracking-wide text-xs mb-3">
+              Open Tasks
+            </h3>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {sortedTasks.map((task) => (
+              <Task
+                key={task.taskid}
+                task={task}
+                deleteTaskAction={deleteTaskAction}
+                editTaskAction={editTaskAction}
+                isCompletedTaskAction={isCompletedTaskAction}
+              />
+            ))}
+          </div>
         </div>
       )}
 
