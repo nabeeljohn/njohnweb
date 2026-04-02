@@ -29,7 +29,7 @@ export default function TaskList({ tasks = [], deleteTaskAction, editTaskAction,
   return (
     <div className="w-full h-full p-0">
       {/* Heading with count */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-4 bg-gray-800/50 px-4 py-3 rounded-md">
         <div className="flex items-center gap-4 text-sm text-gray-400">
           <span>
             <span className="text-white font-medium">{tasks.length}</span> Tasks
