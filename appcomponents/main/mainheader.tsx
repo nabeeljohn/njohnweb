@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -11,12 +11,23 @@ import {
   MdMenu,
   MdClose,
   MdHome,
+  MdKeyboardArrowDown,
 } from "react-icons/md";
 import MainLogo from "./logo";
+import { ProductivityToolsDropdownItems } from "./productivitytoolsdropdownitems";
+import { DeveloperToolsDropdownItems } from "./developertoolsdropdownitems";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname() || "";
+  const isProductivityToolsRoute = pathname.startsWith("/tools/productivity");
+  const [isProductivityDropdownOpen, setIsProductivityDropdownOpen] = useState(false);
+  const [isMobileProductivityDropdownOpen, setIsMobileProductivityDropdownOpen] = useState(false);
+  const productivityDropdownRef = useRef<HTMLLIElement | null>(null);
+  const isDeveloperToolsRoute = pathname.startsWith("/tools/dev");
+  const [isDeveloperDropdownOpen, setIsDeveloperDropdownOpen] = useState(false);
+  const [isMobileDeveloperDropdownOpen, setIsMobileDeveloperDropdownOpen] = useState(false);
+  const developerDropdownRef = useRef<HTMLLIElement | null>(null);
 
   const linkBase = "flex items-center gap-1 hover:text-blue-300 transition";
   const activeClass = "text-blue-200";
@@ -32,6 +43,56 @@ export default function MainHeader() {
   const productivityToolsStyles = `${linkBase} ${isActive("/tools/productivity") ? activeClass : inactiveClass}`;
   const photographyStyles = `${linkBase} ${isActive("/photography") ? activeClass : inactiveClass}`;
   const resumeStyles = `${linkBase} ${isActive("/resume") ? activeClass : inactiveClass}`;
+
+  // Close the dropdown whenever we navigate away from productivity tools.
+  useEffect(() => {
+    if (!isProductivityToolsRoute) setIsProductivityDropdownOpen(false);
+    if (!isProductivityToolsRoute) setIsMobileProductivityDropdownOpen(false);
+  }, [isProductivityToolsRoute]);
+
+  // Close the dropdown whenever we navigate away from developer tools.
+  useEffect(() => {
+    if (!isDeveloperToolsRoute) setIsDeveloperDropdownOpen(false);
+    if (!isDeveloperToolsRoute) setIsMobileDeveloperDropdownOpen(false);
+  }, [isDeveloperToolsRoute]);
+
+  // If the mobile menu closes, also close any expanded nested menus.
+  useEffect(() => {
+    if (!isOpen) {
+      setIsMobileProductivityDropdownOpen(false);
+      setIsMobileDeveloperDropdownOpen(false);
+    }
+  }, [isOpen]);
+
+  // Close the dropdown when clicking outside.
+  useEffect(() => {
+    if (!isProductivityDropdownOpen) return;
+
+    const onMouseDown = (e: MouseEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (productivityDropdownRef.current?.contains(target)) return;
+      setIsProductivityDropdownOpen(false);
+    };
+
+    document.addEventListener("mousedown", onMouseDown);
+    return () => document.removeEventListener("mousedown", onMouseDown);
+  }, [isProductivityDropdownOpen]);
+
+  // Close the dropdown when clicking outside.
+  useEffect(() => {
+    if (!isDeveloperDropdownOpen) return;
+
+    const onMouseDown = (e: MouseEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (developerDropdownRef.current?.contains(target)) return;
+      setIsDeveloperDropdownOpen(false);
+    };
+
+    document.addEventListener("mousedown", onMouseDown);
+    return () => document.removeEventListener("mousedown", onMouseDown);
+  }, [isDeveloperDropdownOpen]);
 
   return (
     <header className="w-full bg-gray-800 text-white">
@@ -60,23 +121,61 @@ export default function MainHeader() {
                 Home
               </Link>
             </li>
-            <li>
-              <Link
-                href="/tools/dev"
-                className={devToolsStyles}
+            <li ref={developerDropdownRef} className="relative">
+              <button
+                type="button"
+                className={`${devToolsStyles} inline-flex items-center gap-2 px-2 py-1 rounded-md hover:bg-gray-700/40 transition`}
+                aria-haspopup="menu"
+                aria-expanded={isDeveloperDropdownOpen}
+                onClick={() => setIsDeveloperDropdownOpen((v) => !v)}
               >
                 <MdBuild className="h-5 w-5" />
                 Developer Tools
-              </Link>
+                <MdKeyboardArrowDown
+                  className={`h-4 w-4 transition-transform ${
+                    isDeveloperDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {isDeveloperDropdownOpen && (
+                <div
+                  role="menu"
+                  className="absolute right-0 mt-2 w-56 rounded-md bg-gray-700/90 border border-gray-600 shadow-lg py-1"
+                >
+                  <DeveloperToolsDropdownItems
+                    variant="desktop"
+                    onNavigate={() => setIsDeveloperDropdownOpen(false)}
+                  />
+                </div>
+              )}
             </li>
-            <li>
-              <Link
-                href="/tools/productivity"
-                className={productivityToolsStyles}
+            <li ref={productivityDropdownRef} className="relative">
+              <button
+                type="button"
+                className={`${productivityToolsStyles} inline-flex items-center gap-2 px-2 py-1 rounded-md hover:bg-gray-700/40 transition`}
+                aria-haspopup="menu"
+                aria-expanded={isProductivityDropdownOpen}
+                onClick={() => setIsProductivityDropdownOpen((v) => !v)}
               >
                 <MdApps className="h-5 w-5" />
                 Productivity Tools
-              </Link>
+                <MdKeyboardArrowDown
+                  className={`h-4 w-4 transition-transform ${isProductivityDropdownOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {isProductivityDropdownOpen && (
+                <div
+                  role="menu"
+                  className="absolute right-0 mt-2 w-56 rounded-md bg-gray-700/95 border border-gray-600 shadow-lg py-1"
+                >
+                  <ProductivityToolsDropdownItems
+                    variant="desktop"
+                    onNavigate={() => setIsProductivityDropdownOpen(false)}
+                  />
+                </div>
+              )}
             </li>
             <li>
               <Link
@@ -116,22 +215,73 @@ export default function MainHeader() {
               </Link>
             </li>
             <li>
-              <Link
-                href="/tools/dev"
-                className={devToolsStyles}
+              <button
+                type="button"
+                className={`${devToolsStyles} w-full justify-between px-2 py-1 rounded-md`}
+                aria-haspopup="menu"
+                aria-expanded={isMobileDeveloperDropdownOpen}
+                onClick={() => {
+                  setIsMobileDeveloperDropdownOpen((v) => !v);
+                  setIsMobileProductivityDropdownOpen(false);
+                }}
               >
-                <MdBuild className="h-5 w-5" />
-                Developer Tools
-              </Link>
+                <span className="flex items-center gap-1">
+                  <MdBuild className="h-5 w-5" />
+                  Developer Tools
+                </span>
+                <MdKeyboardArrowDown
+                  className={`h-4 w-4 transition-transform ${
+                    isMobileDeveloperDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {isMobileDeveloperDropdownOpen && (
+                <div className="mt-2 ml-6 flex flex-col gap-1">
+                  <DeveloperToolsDropdownItems
+                    variant="mobile"
+                    onNavigate={() => {
+                      setIsOpen(false);
+                      setIsMobileDeveloperDropdownOpen(false);
+                    }}
+                  />
+                </div>
+              )}
             </li>
+
             <li>
-              <Link
-                href="/tools/productivity"
-                className={productivityToolsStyles}
+              <button
+                type="button"
+                className={`${productivityToolsStyles} w-full justify-between px-2 py-1 rounded-md`}
+                aria-haspopup="menu"
+                aria-expanded={isMobileProductivityDropdownOpen}
+                onClick={() => {
+                  setIsMobileProductivityDropdownOpen((v) => !v);
+                  setIsMobileDeveloperDropdownOpen(false);
+                }}
               >
-                <MdApps className="h-5 w-5" />
-                Productivity Tools
-              </Link>
+                <span className="flex items-center gap-1">
+                  <MdApps className="h-5 w-5" />
+                  Productivity Tools
+                </span>
+                <MdKeyboardArrowDown
+                  className={`h-4 w-4 transition-transform ${
+                    isMobileProductivityDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {isMobileProductivityDropdownOpen && (
+                <div className="mt-2 ml-6 flex flex-col gap-1">
+                  <ProductivityToolsDropdownItems
+                    variant="mobile"
+                    onNavigate={() => {
+                      setIsOpen(false);
+                      setIsMobileProductivityDropdownOpen(false);
+                    }}
+                  />
+                </div>
+              )}
             </li>
             <li>
               <Link
@@ -149,6 +299,7 @@ export default function MainHeader() {
                 rel="noopener noreferrer"
                 className={resumeStyles}
               >
+                
                 <MdDescription className="h-5 w-5" />
                 Resume
               </a>
