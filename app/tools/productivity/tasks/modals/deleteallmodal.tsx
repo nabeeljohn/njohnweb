@@ -25,10 +25,11 @@ export default function DeleteAllModal({ action, tasks = [] }: DeleteAllModalPro
             {/* Open Button */}
             <button
                 onClick={() => setOpen(true)}
-                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm font-medium text-white transition disabled:opacity-50"
+                className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center bg-red-600 hover:bg-red-700 px-4 py-2.5 rounded-lg text-sm font-medium text-white border border-red-500/50 transition disabled:opacity-50 active:scale-[0.98]"
                 disabled = {tasks.length === 0}
             >
-                Delete All Tasks
+                <span className="sm:hidden">Delete all tasks</span>
+                <span className="hidden sm:inline">Delete All Tasks</span>
             </button>
 
             {/* Modal */}
@@ -43,17 +44,17 @@ export default function DeleteAllModal({ action, tasks = [] }: DeleteAllModalPro
                             Are you sure you want to delete all tasks? This action cannot be undone.
                         </p>
 
-                        <div className="flex justify-end gap-3">
+                        <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end sm:gap-3">
                             <button
                                 onClick={() => setOpen(false)}
-                                className="px-4 py-2 rounded-md bg-gray-700 hover:bg-gray-600 text-sm disabled:opacity-50"
+                                className="w-full sm:w-auto min-h-[44px] px-4 py-2.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-sm disabled:opacity-50 transition active:scale-[0.98]"
                                 disabled = {isPending}
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={handleConfirm}
-                                className="px-4 py-2 rounded-md bg-red-600 hover:bg-red-700 text-sm text-white disabled:opacity-50"
+                                className="w-full sm:w-auto min-h-[44px] px-4 py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-sm font-medium text-white disabled:opacity-50 transition active:scale-[0.98]"
                                 disabled = {isPending}
                             >
                                 {isPending ? "Deleting..." : "Delete All"}

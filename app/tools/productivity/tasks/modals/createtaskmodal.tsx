@@ -16,7 +16,7 @@ export default function CreateTaskModal({action}: CreateTaskModalProps) {
             {/* Open Button */}
             <button
                 onClick={() => setOpen(true)}
-                className="bg-gray-800 hover:bg-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition"
+                className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center bg-gray-800 hover:bg-gray-700 border border-gray-600 px-4 py-2.5 rounded-lg text-sm font-medium transition active:scale-[0.98]"
             >
                 Create Task
             </button>
@@ -32,7 +32,7 @@ export default function CreateTaskModal({action}: CreateTaskModalProps) {
                     />
 
                     {/* Modal Content */}
-                    <div className="relative bg-gray-800 p-6 rounded-xl w-full max-w-md shadow-lg">
+                    <div className="relative bg-gray-800 p-4 sm:p-6 rounded-xl w-[min(100%-1.5rem,28rem)] mx-3 sm:mx-0 max-w-md shadow-lg">
                         <h2 className="text-xl font-semibold mb-4">Create Task</h2>
 
                         {/* Form */}
@@ -66,18 +66,18 @@ export default function CreateTaskModal({action}: CreateTaskModalProps) {
                             </div>
 
                             {/* Buttons */}
-                            <div className="flex justify-end space-x-3 pt-4">
+                            <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end sm:gap-3 pt-4">
                                 <button
                                     type="button"
                                     onClick={() => setOpen(false)}
-                                    className="px-4 py-2 rounded bg-gray-600 hover:bg-gray-500 text-sm"
+                                    className="w-full sm:w-auto min-h-[44px] px-4 py-2.5 rounded-lg bg-gray-600 hover:bg-gray-500 text-sm transition active:scale-[0.98]"
                                 >
                                     Cancel
                                 </button>
 
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-sm disabled:opacity-50"
+                                    className="w-full sm:w-auto min-h-[44px] px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-sm font-medium disabled:opacity-50 transition active:scale-[0.98]"
                                     disabled={isPending}
                                 >
                                     {isPending ? "Creating..." : "Submit"}

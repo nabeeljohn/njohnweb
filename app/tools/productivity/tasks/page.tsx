@@ -25,8 +25,8 @@ export default async function Tasks() {
 
     return (
         <>
-            <div className="flex items-center justify-between mb-6 gap-4">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 min-w-0">
                     <h1 className="text-3xl font-semibold tracking-tight flex items-center gap-2">
                         Tasks
                         <span className="text-sm font-medium px-2 py-0.5 rounded-md bg-gray-800/70 text-gray-300 border border-gray-700 flex items-center gap-1">
@@ -38,7 +38,7 @@ export default async function Tasks() {
                     A streamlined version of Tasks. Full app in development—will launch separately and be announced here.
                     </p>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto shrink-0">
                     <CreateTaskModal action={handleCreateTaskByMemberId.bind(null, contact?.memberId || "")} />
                     <DeleteAllModal action={handleDeleteAllTasksByMemberId.bind(null, contact?.memberId || "")} tasks={res} />
                 </div>

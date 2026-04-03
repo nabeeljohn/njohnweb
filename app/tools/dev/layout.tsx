@@ -5,7 +5,7 @@ export default function DevToolsLayout({ children, }: Readonly<{ children: React
         <div className="flex flex-col">
             <main className="flex-1">
                 <div className="bg-gray-700 text-gray-100">
-                    <div className="max-w-7xl mx-auto px-6">
+                    <div className="max-w-7xl mx-auto px-6 pb-6">
                         <ToolsMenuBreadcrumbs items={[
                             { label: "Developer Tools", href: "/tools/dev" },
                             { label: "Link Lab", href: "/tools/dev/url" },
