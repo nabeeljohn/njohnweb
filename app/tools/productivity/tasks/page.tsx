@@ -6,17 +6,17 @@ import { pageTitle } from "@/lib/metadata/metadata";
 import { handleCreateTaskByMemberId, handleDeleteTaskByTaskId, handleEditTaskByTaskId, handleDeleteAllTasksByMemberId, handleMarkIsCompleted } from "@/lib/tasks/actions";
 import { handleGetCurrentUser } from "@/lib/authentication/actions";
 import { redirect } from "next/navigation";
-
+import { MdBolt } from "react-icons/md";
 export const metadata = {
-    title: pageTitle("Tasks"),
-    description: "Manage your tasks and action items with NJohn Web's Task Manager. Create, view, and delete tasks to stay organized and productive.",
+    title: pageTitle("Tasks Lite"),
+    description: "Free, lightweight task list from NJohn Web. The full Tasks app is coming soon.",
 };
 
 export const dynamic = "force-dynamic";
 
 export default async function Tasks() {
     const contact = await handleGetCurrentUser();
-    
+
     if (!contact) {
         redirect("/authentication/signin?redirect=" + encodeURIComponent("/tools/productivity/tasks"));
     }
@@ -25,14 +25,25 @@ export default async function Tasks() {
 
     return (
         <>
-            <div className="flex items-center justify-between mb-6">
-                <h1 className="text-3xl font-bold">Tasks</h1>
+            <div className="flex items-center justify-between mb-6 gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
+                    <h1 className="text-3xl font-semibold tracking-tight flex items-center gap-2">
+                        Tasks
+                        <span className="text-sm font-medium px-2 py-0.5 rounded-md bg-gray-800/70 text-gray-300 border border-gray-700 flex items-center gap-1">
+                            <MdBolt className="h-3.5 w-3.5 opacity-80" />
+                            Lite
+                        </span>
+                    </h1>
+                    <p className="hidden sm:block text-sm text-gray-400 sm:ml-2">
+                    A streamlined version of Tasks. Full app in development—will launch separately and be announced here.
+                    </p>
+                </div>
                 <div className="flex gap-3">
                     <CreateTaskModal action={handleCreateTaskByMemberId.bind(null, contact?.memberId || "")} />
-                    <DeleteAllModal action={handleDeleteAllTasksByMemberId.bind(null, contact?.memberId || "")} tasks={res}/>
+                    <DeleteAllModal action={handleDeleteAllTasksByMemberId.bind(null, contact?.memberId || "")} tasks={res} />
                 </div>
             </div>
-            <TaskList tasks={res} deleteTaskAction={handleDeleteTaskByTaskId} editTaskAction={handleEditTaskByTaskId} isCompletedTaskAction={handleMarkIsCompleted}/>
+            <TaskList tasks={res} deleteTaskAction={handleDeleteTaskByTaskId} editTaskAction={handleEditTaskByTaskId} isCompletedTaskAction={handleMarkIsCompleted} />
         </>
     );
 }
