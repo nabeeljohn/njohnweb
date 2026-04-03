@@ -1,6 +1,6 @@
-import AboutMe from "@/appcomponents/main/aboutme/aboutme";
-import AboutMeBoxes from "@/appcomponents/main/aboutme/aboutmeboxes";
-import { AboutMeCallToActions } from "@/appcomponents/main/aboutme/aboutmectas";
+import AboutMe from "@/appcomponents/aboutme/aboutme";
+import AboutMeBoxes from "@/appcomponents/aboutme/aboutmeboxes";
+import { AboutMeCallToActions } from "@/appcomponents/aboutme/aboutmectas";
 import { pageTitle } from "@/lib/metadata/metadata";
 
 export const metadata = {

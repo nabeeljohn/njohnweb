@@ -14,8 +14,8 @@ import {
   MdKeyboardArrowDown,
 } from "react-icons/md";
 import MainLogo from "./logo";
-import { ProductivityToolsDropdownItems } from "./productivitytoolsdropdownitems";
-import { DeveloperToolsDropdownItems } from "./developertoolsdropdownitems";
+import { ProductivityToolsDropdownItems } from "./toolsmenuitems/productivitytoolsdropdownitems";
+import { DeveloperToolsDropdownItems } from "./toolsmenuitems/developertoolsdropdownitems";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -141,7 +141,7 @@ export default function MainHeader() {
               {isDeveloperDropdownOpen && (
                 <div
                   role="menu"
-                  className="absolute right-0 mt-2 w-56 rounded-md bg-gray-700/90 border border-gray-600 shadow-lg py-1"
+                  className="absolute right-0 mt-2 w-56 rounded-md bg-gray-700/95 border border-gray-600 shadow-lg py-1"
                 >
                   <DeveloperToolsDropdownItems
                     variant="desktop"

@@ -1,4 +1,4 @@
-import UserStatus from "../userstatus/userstatus";
+import UserStatus from "./userstatus";
 
 export default function UserStatusBar() {
     return (
